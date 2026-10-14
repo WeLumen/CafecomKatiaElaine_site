@@ -2,12 +2,13 @@
 FROM node:20-alpine AS frontend
 WORKDIR /app/frontend
 COPY frontend/package.json ./
-RUN npm install --legacy-peer-deps --no-audit --no-fund
+# o projeto usa "resolutions" (só o yarn respeita), então instalamos com yarn
+RUN yarn install --network-timeout 600000
 COPY frontend/ ./
 # API na mesma origem: deixa a URL vazia
 ENV REACT_APP_BACKEND_URL=""
 ENV CI=false
-RUN npx craco build
+RUN yarn build
 
 # ---------- 2) backend + frontend estático ----------
 FROM python:3.11-slim
