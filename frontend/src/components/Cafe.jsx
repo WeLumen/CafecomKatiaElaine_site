@@ -2,6 +2,7 @@ import { Coffee, Mic, Users, CalendarDays, ArrowUpRight } from "lucide-react";
 import { Reveal, Eyebrow } from "./Reveal";
 import { waLink, WA_MSGS, WA_CAFE_NUMBER } from "../lib/site";
 import logo from "../assets/logo-round.png";
+import { KatiaCirculo } from "./KatiaCirculo";
 
 const formats = [
   {
@@ -20,9 +21,6 @@ const formats = [
     text: "Espaço contínuo de suporte, dúvidas e parcerias entre os membros da comunidade.",
   },
 ];
-
-const imgCafe =
-  "https://images.unsplash.com/photo-1763259405705-6e27ac5cdf0f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTN8MHwxfHNlYXJjaHw0fHxleGVjdXRpdmUlMjB3b21hbiUyMGNvZmZlZSUyMG1lZXRpbmclMjBwb2RpYXRyaXN0JTIwcG9ydHJhaXR8ZW58MHx8fHwxNzkxOTMyNjQwfDA&ixlib=rb-4.1.0&q=85";
 
 export const Cafe = () => (
   <section id="cafe" className="bg-roxo py-24 sm:py-32 relative overflow-hidden">
@@ -80,13 +78,10 @@ export const Cafe = () => (
         </Reveal>
 
         <Reveal delay={0.2}>
-          <div className="relative">
-            <div className="absolute -inset-4 rounded-[2.5rem] border border-dourado/30 -rotate-2" />
-            <img
-              src={imgCafe}
-              alt="Encontro de networking do Café com Katia Elaine"
-              data-testid="cafe-image"
-              className="relative rounded-[2.5rem] w-full h-[480px] sm:h-[560px] object-cover shadow-2xl"
+          <div className="relative max-w-sm mx-auto my-10">
+            <KatiaCirculo
+              alt="Katia Elaine, idealizadora do Café com Katia Elaine"
+              testid="cafe-image"
             />
           </div>
         </Reveal>

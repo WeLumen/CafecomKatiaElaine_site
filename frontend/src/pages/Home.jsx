@@ -9,6 +9,7 @@ import { Cafe } from "../components/Cafe";
 import { Depoimentos } from "../components/Depoimentos";
 import { Contato } from "../components/Contato";
 import { Footer } from "../components/Footer";
+import { FloatingWhatsApp } from "../components/FloatingWhatsApp";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <Depoimentos />
       <Contato />
       <Footer />
+      <FloatingWhatsApp />
     </main>
   );
 }

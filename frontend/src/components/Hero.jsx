@@ -100,7 +100,7 @@ export const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               data-testid="hero-cta-cafe"
-              className="inline-flex items-center justify-center gap-2.5 border border-roxo/25 text-roxo font-medium px-7 py-4 rounded-full hover:border-dourado hover:text-dourado transition-all duration-300"
+              className="inline-flex items-center justify-center gap-2.5 text-roxo font-medium px-3 py-4 underline underline-offset-4 decoration-dourado/60 hover:text-dourado transition-colors duration-300"
             >
               <Coffee size={18} />
               Participar do Café com Katia Elaine

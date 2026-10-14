@@ -1,9 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
-import { MapPin, Instagram, MessageCircle, Send, Loader2 } from "lucide-react";
+import { MapPin, Instagram, MessageCircle, Send, Loader2, Clock } from "lucide-react";
 import { Reveal, Eyebrow } from "./Reveal";
-import { waLink, WA_MSGS, INSTAGRAM_PODOLOGIA, INSTAGRAM_CAFE } from "../lib/site";
+import { waLink, WA_MSGS, INSTAGRAM_PODOLOGIA, INSTAGRAM_CAFE, HORARIO_ATENDIMENTO } from "../lib/site";
 
 const API = `${process.env.REACT_APP_BACKEND_URL || ""}/api`;
 
@@ -64,6 +64,17 @@ export const Contato = () => {
                   <span className="block text-sm text-suave">São Paulo - SP · Bairro Brás</span>
                 </div>
               </div>
+              {HORARIO_ATENDIMENTO && (
+                <div className="flex items-start gap-4" data-testid="contato-horario">
+                  <span className="w-11 h-11 rounded-xl bg-roxo text-dourado flex items-center justify-center shrink-0">
+                    <Clock size={20} />
+                  </span>
+                  <div>
+                    <span className="block text-sm font-semibold text-roxo">Horário de Atendimento</span>
+                    <span className="block text-sm text-suave">{HORARIO_ATENDIMENTO}</span>
+                  </div>
+                </div>
+              )}
               <div className="flex items-start gap-4" data-testid="contato-redes">
                 <span className="w-11 h-11 rounded-xl bg-roxo text-dourado flex items-center justify-center shrink-0">
                   <Instagram size={20} />
@@ -88,6 +99,14 @@ export const Contato = () => {
                 <MessageCircle size={17} />
                 Chamar no WhatsApp agora
               </a>
+              <iframe
+                title="Mapa — Brás, São Paulo - SP"
+                data-testid="contato-mapa"
+                src="https://www.google.com/maps?q=Br%C3%A1s%2C%20S%C3%A3o%20Paulo%20-%20SP&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-56 rounded-3xl border border-borda"
+              />
             </div>
           </Reveal>
 
@@ -136,6 +155,10 @@ export const Contato = () => {
                 {sending ? <Loader2 size={18} className="animate-spin" /> : <Send size={17} />}
                 {sending ? "Enviando..." : "Enviar Mensagem"}
               </button>
+              <p data-testid="contato-privacidade" className="mt-4 text-xs text-suave leading-relaxed text-center">
+                Ao enviar, você concorda que seus dados (nome e telefone) sejam usados apenas para
+                retornar seu contato, conforme a LGPD. Não compartilhamos suas informações.
+              </p>
             </form>
           </Reveal>
         </div>

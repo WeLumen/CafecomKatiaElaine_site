@@ -24,22 +24,19 @@ const pillars = [
   },
 ];
 
-import katiaFoto from "../assets/katia.jpg";
+import { KatiaCirculo } from "./KatiaCirculo";
 
 export const Sobre = () => (
-  <section id="sobre" className="bg-perola py-24 sm:py-32">
+  <section id="sobre" className="bg-perola py-24 sm:py-32 overflow-hidden">
     <div className="max-w-7xl mx-auto px-5 sm:px-8">
       <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center mb-20">
         <Reveal>
-          <div className="relative">
-            <div className="absolute -inset-4 rounded-[2rem] border border-dourado/30 rotate-2" />
-            <img
-              src={katiaFoto}
+          <div className="relative max-w-sm mx-auto my-10">
+            <KatiaCirculo
               alt="Katia Elaine, podologista e CEO do Café com Katia Elaine"
-              data-testid="sobre-image"
-              className="relative rounded-[2rem] w-full h-[420px] sm:h-[520px] object-cover object-top shadow-2xl"
+              testid="sobre-image"
             />
-            <span className="absolute -bottom-6 left-6 font-script text-3xl sm:text-4xl text-dourado bg-perola/95 px-5 py-2 rounded-2xl shadow-lg rotate-[-2deg]">
+            <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap font-script text-3xl sm:text-4xl text-dourado bg-perola/95 px-5 py-2 rounded-2xl shadow-lg rotate-[-2deg]">
               Katia Elaine
             </span>
           </div>

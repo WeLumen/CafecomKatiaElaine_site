@@ -11,6 +11,9 @@ export const WA_MSGS = {
   consulta: "Olá, Katia! Gostaria de agendar minha consulta clínica.",
 };
 
+// Preencha com o horário real de atendimento (ex.: "Seg a Sex · 9h às 18h"). Se ficar vazio, não aparece no site.
+export const HORARIO_ATENDIMENTO = "";
+
 export const INSTAGRAM_PODOLOGIA = "https://instagram.com/katiaelaine.podologia";
 export const INSTAGRAM_CAFE = "https://www.instagram.com/cafecomkatiaelaine/";
 export const INSTAGRAM_ABP = "https://www.instagram.com/abp.podologia/";
