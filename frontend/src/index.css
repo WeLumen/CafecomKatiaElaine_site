@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700&family=La+Belle+Aurore&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --roxo-principal: #351B31;
+    --roxo-secundario: #542B46;
+    --dourado: #B88D56;
+    --creme: #F8F5EF;
+    --branco-perola: #FFFDF9;
+    --rose: #E6D8D6;
+    --texto-principal: #322A2E;
+    --texto-secundario: #6E6467;
+    --bordas: #E6DDD3;
+
+    --background: 38 33% 98%;
+    --foreground: 330 8% 18%;
+    --card: 38 33% 98%;
+    --card-foreground: 330 8% 18%;
+    --popover: 38 33% 98%;
+    --popover-foreground: 330 8% 18%;
+    --primary: 320 33% 15%;
+    --primary-foreground: 38 33% 98%;
+    --secondary: 33 38% 53%;
+    --secondary-foreground: 38 33% 98%;
+    --muted: 36 25% 95%;
+    --muted-foreground: 330 4% 41%;
+    --accent: 33 38% 53%;
+    --accent-foreground: 38 33% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 33 22% 87%;
+    --input: 33 22% 87%;
+    --ring: 33 38% 53%;
+    --radius: 0.75rem;
+}
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+body {
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--branco-perola);
+    color: var(--texto-principal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+.font-serif-brand { font-family: 'Cormorant Garamond', serif; }
+.font-script { font-family: 'La Belle Aurore', cursive; }
+
+::selection { background: var(--dourado); color: var(--branco-perola); }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--creme); }
+::-webkit-scrollbar-thumb { background: var(--roxo-secundario); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--dourado); }
+
+@keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+.animate-marquee {
+    animation: marquee-scroll 48s linear infinite;
+}
+.animate-marquee:hover { animation-play-state: paused; }
+
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.animate-spin-slower { animation: spin-slow 80s linear infinite; }
+.animate-spin-slowest { animation: spin-slow 140s linear infinite reverse; }
+
+@keyframes float-soft {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+.animate-float-soft { animation: float-soft 6s ease-in-out infinite; }
+
+.gold-ring {
+    background: conic-gradient(from 0deg, #B88D56, #E6D8D6, #B88D56, #8a6a3e, #B88D56);
+}
+
+.text-balance { text-wrap: balance; }

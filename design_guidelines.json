@@ -1,0 +1,149 @@
+{
+  "project_title": "Website Portfólio Profissional de Alto Padrão - Katia Elaine",
+  "app_type": "portfolio_editorial_luxury",
+  "language": "pt-BR",
+  "target_audience": "Pacientes de podologia clínica e esportiva, podólogos em busca de mentoria prática e gestão, parceiros institucionais e executivos para networking no Café com Katia Elaine",
+  "archetype": "LUXURY & EDITORIAL WELLNESS",
+  "colors": {
+    "roxo_principal": "#351B31",
+    "roxo_secundario": "#542B46",
+    "dourado": "#B88D56",
+    "dourado_hover": "#A27945",
+    "creme": "#F8F5EF",
+    "branco_perola": "#FFFDF9",
+    "rose": "#E6D8D6",
+    "texto_principal": "#322A2E",
+    "texto_secundario": "#6E6467",
+    "bordas": "#E6DDD3",
+    "dark_card_bg": "#271224",
+    "dark_card_border": "rgba(184, 141, 86, 0.25)"
+  },
+  "typography": {
+    "heading_font": "Cormorant Garamond, serif (or Playfair Display)",
+    "body_font": "Outfit, sans-serif (or Manrope)",
+    "mono_font": "JetBrains Mono, monospace",
+    "script_font": "La Belle Aurore or Caveat, cursive for signature touches",
+    "scale": {
+      "h1_hero": "text-4xl sm:text-5xl lg:text-6xl tracking-tight font-serif",
+      "h2_section": "text-3xl sm:text-4xl font-serif tracking-tight",
+      "h3_card": "text-xl sm:text-2xl font-serif",
+      "body_text": "text-base sm:text-lg leading-relaxed text-[#6E6467]",
+      "eyebrow": "text-xs uppercase tracking-[0.25em] text-[#B88D56] font-semibold"
+    }
+  },
+  "layout_and_structure": {
+    "header": {
+      "type": "Glassmorphism sticky header with gold inner stroke",
+      "bg": "bg-[#FFFDF9]/85 backdrop-blur-md border-b border-[#E6DDD3]",
+      "components": "Mandala SVG Favicon/Logo + Katia Elaine Brand typography, desktop nav links (Sobre, Atuação, Serviços, Mentorias, Café, Contato), primary CTA button ('Agendar Consulta')"
+    },
+    "sections": [
+      {
+        "id": "hero",
+        "name": "Hero Cinético & Apresentação",
+        "theme": "Light Creme background with rich Roxo & Dourado accents",
+        "key_elements": "Kinetic line-by-line masked text reveal (framer-motion), badge 'Podologia • Naturopatia • Gestão • Community', 3 prominent CTAs (WhatsApp Podologia, Conhecer Mentorias, Participar do Café), profile highlight image with gold mandala overlay border"
+      },
+      {
+        "id": "marquee",
+        "name": "Editorial Ribbon (Living Texture Marquee)",
+        "theme": "Roxo Principal (#351B31) banner with gold & rose floating keywords",
+        "text": "PODOLOGIA CLÍNICA • ESPORTIVA WBBF • NATUROPATIA INTEGRATIVA • GESTÃO DE CLÍNICAS • MENTORIA HANDS-ON • CAFÉ COM KATIA ELAINE • ABP • CASAS DE ANGOLA HUB"
+      },
+      {
+        "id": "sobre",
+        "name": "Sobre Katia Elaine & 4 Pilares",
+        "theme": "Branco Peróla (#FFFDF9)",
+        "content": "Apresentação profissional e os 4 pilares: 1. Saúde Podológica Avançada, 2. Terapias Naturopáticas & Holísticas, 3. Gestão & Liderança em Saúde, 4. Conexão Executive & Networking"
+      },
+      {
+        "id": "atuacao",
+        "name": "Atuação Institucional",
+        "theme": "Creme (#F8F5EF)",
+        "cards": [
+          "Card 1: ABP - Associação Brasileira de Podólogos (Engajamento técnico, normas éticas e desenvolvimento da categoria)",
+          "Card 2: Relações Internacionais / Casa de Angola Hub (Conexão transcontinental de negócios, cultura e empoderamento executivo)"
+        ]
+      },
+      {
+        "id": "servicos",
+        "name": "Serviços de Podologia Clínica & Patrocínios",
+        "theme": "Roxo Secundário (#542B46) luxury dark section with gold accents",
+        "highlights": "Patrocinadora Oficial WBBF Brasil (World Bodybuilding Federation) & Parceiros de Treino (Pure Pilates Mooca, Clube Atlético Juventus, Zion Gym)",
+        "services_list": [
+          "1. Podologia Preventiva & Gerontológica",
+          "2. Tratamento de Unha Encravada (Onicocriptose & Órteses)",
+          "3. Podologia Esportiva & Alta Performance",
+          "4. Tratamente de Micoses (Onicomicose) & Laserterapia",
+          "5. Pé Diabético & Cuidados Especiais",
+          "6. Spa dos Pés Naturopático & Reflexologia",
+          "7. Avaliação Biomecânica & Palmilhas Sob Medida"
+        ]
+      },
+      {
+        "id": "mentorias",
+        "name": "Programas de Mentoria VIP",
+        "theme": "Creme (#F8F5EF)",
+        "cards": [
+          "Mentoria 1: Prática Hands-On (6 Meses) — imersão presencial e acompanhamento técnico para podólogos alcançarem excelência clínica",
+          "Mentoria 2: Gestão, Administração & Finanças — estratégia corporativa, precificação, marketing e experiência do paciente para clínicas de sucesso"
+        ]
+      },
+      {
+        "id": "cafe",
+        "name": "Café com Katia Elaine",
+        "theme": "Roxo Principal (#351B31) luxury dark section with warm ambient glow",
+        "content": "Comunidade VIP e Encontros Executivos: Reuniões semestrais, Mesas redondas de negócios, Gravação de podcasts & debates, Networking de alto impacto"
+      },
+      {
+        "id": "depoimentos",
+        "name": "Depoimentos & Histórias de Sucesso",
+        "theme": "Branco Peróla (#FFFDF9)",
+        "content": "Cards interativos de depoimentos de pacientes recuperados, alunas das mentorias e parceiros de negócios"
+      },
+      {
+        "id": "contato",
+        "name": "Contato & Agendamento",
+        "theme": "Creme (#F8F5EF)",
+        "features": "Formulário interativo integrado com MongoDB (Nome, Telefone/WhatsApp, Perfil: Paciente / Aluno Mentoria / Parceiro / Empresa, Assunto, Mensagem), Informações de localização (Brás - São Paulo/SP), Redes sociais (@katiaelaine.podologia e @cafecomkatiaelaine), WhatsApp direto com mensagem pré-formatada"
+      },
+      {
+        "id": "footer",
+        "name": "Footer Institucional",
+        "theme": "Roxo Principal (#351B31) with Gold text & Mandala watermark",
+        "content": "Brand logo, links rápidos, endereço Brás SP, redes sociais e direitos reservados"
+      }
+    ]
+  },
+  "image_urls": {
+    "hero_portrait": "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTN8MHwxfHNlYXJjaHwxfHxleGVjdXRpdmUlMjB3b21hbiUyMGNvZmZlZSUyMG1lZXRpbmclMjBwb2RpYXRyaXN0JTIwcG9ydHJhaXR8ZW58MHx8fHwxNzkxOTMyNjQwfDA&ixlib=rb-4.1.0&q=85",
+    "sobre_treatment": "https://images.unsplash.com/photo-1519419451778-14599a49ec41?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjBmb290JTIwY2FyZSUyMHBvZG9sb2d5JTIwd2VsbG5lc3MlMjBzcGElMjB0cmVhdG1lbnR8ZW58MHx8fHwxNzkxOTMyNjMzfDA&ixlib=rb-4.1.0&q=85",
+    "naturopathy_herbs": "https://images.unsplash.com/photo-1545840716-c82e9eec6930?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHwxfHxoZXJiYWwlMjBuYXR1cm9wYXRoeSUyMGFyb21hdGhlcmFweSUyMGVzc2VudGlhbCUyMG9pbHMlMjBjbGluaWN8ZW58MHx8fHwxNzkxOTMyNjQwfDA&ixlib=rb-4.1.0&q=85",
+    "sports_pilates": "https://images.unsplash.com/photo-1717500252297-b09508db7ceb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NDh8MHwxfHNlYXJjaHwyfHxwaWxhdGVzJTIwcmVmb3JtZXIlMjBneW0lMjBzcG9ydHMlMjB0cmFpbmluZyUyMGF0aGxldGV8ZW58MHx8fHwxNzkxOTMyNjQwfDA&ixlib=rb-4.1.0&q=85",
+    "cafe_networking": "https://images.unsplash.com/photo-1763259405705-6e27ac5cdf0f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTN8MHwxfHNlYXJjaHw0fHxleGVjdXRpdmUlMjB3b21hbiUyMGNvZmZlZSUyMG1lZXRpbmclMjBwb2RpYXRyaXN0JTIwcG9ydHJhaXR8ZW58MHx8fHwxNzkxOTMyNjQwfDA&ixlib=rb-4.1.0&q=85",
+    "spa_massage": "https://images.unsplash.com/photo-1706795033796-0057e5864e6d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBmb290JTIwY2FyZSUyMHBvZG9sb2d5JTIwd2VsbG5lc3MlMjBzcGElMjB0cmVhdG1lbnR8ZW58MHx8fHwxNzkxOTMyNjQzfDA&ixlib=rb-4.1.0&q=85"
+  },
+  "brand_assets": {
+    "mandala_svg": "A custom circular mandala SVG vector in roxo (#351B31) and gold (#B88D56) featuring a coffee cup silhouette and small aesthetic foot contour, used as favicon, brand emblem, and section watermarks",
+    "social_handles": {
+      "podologia": "@katiaelaine.podologia",
+      "cafe": "@cafecomkatiaelaine",
+      "whatsapp": "+55 11 99999-8888"
+    },
+    "location": "Rua Silva Teles / Brás - São Paulo, SP - CEP 03026-000"
+  },
+  "interactive_components_and_motion": {
+    "smooth_scroll": "Lenis smooth scroll integration for effortless editorial scrolling feel",
+    "motion_library": "framer-motion for kinetic text reveal, scroll entrance animations, tab transitions, and subtle hover scale",
+    "toast": "sonner for form feedback notification upon sending contact form",
+    "testing_requirement": "All interactive elements (buttons, links, inputs, selects, tabs) MUST include data-testid attributes"
+  },
+  "instructions_to_main_agent": [
+    "Build a stunning single-page editorial portfolio in pt-BR with gold mandala accents and smooth animations.",
+    "Strictly follow the user's color palette: Roxo Principal #351B31, Roxo Secundario #542B46, Dourado #B88D56, Creme #F8F5EF, Branco Perola #FFFDF9, Rose #E6D8D6, Texto Principal #322A2E, Texto Secundario #6E6467, Bordas #E6DDD3.",
+    "Implement the custom Mandala SVG logo incorporating coffee + foot elements as favicon and brand header.",
+    "Ensure all 8 sections are fully populated with rich Portuguese content, realistic clinical descriptions, mentoring details, and sports partner credentials.",
+    "Include full MongoDB backend integration for saving the contact form submissions.",
+    "Ensure responsiveness on mobile, tablet, and desktop viewports, with high-contrast text and explicit data-testid attributes on all key components."
+  ]
+}
