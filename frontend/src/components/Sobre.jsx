@@ -4,7 +4,7 @@ import { Reveal, Eyebrow } from "./Reveal";
 const pillars = [
   {
     icon: Footprints,
-    title: "Atendimento Clínico, Esportivo & Internacional",
+    title: "Atendimento Clínico, Esportivo, Internacional & Saúde",
     text: "Tratamentos preventivos, reabilitadores, procedimentos de alta complexidade e naturopatia voltados para a saúde dos pés e do corpo.",
   },
   {

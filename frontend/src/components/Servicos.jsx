@@ -6,39 +6,39 @@ const partners = ["Pure Pilates Mooca", "Clube Atlético Juventus (Mooca)", "Zio
 
 const services = [
   {
-    title: "Onicocriptose & Infecção — Nível Internacional",
-    text: "Exame clínico palpatório detalhado, descompressão e conduta terapêutica para unhas encravadas e infeccionadas com técnicas de padrão internacional.",
-    tag: "Unhas infeccionadas, granulomas e processos dolorosos recorrentes",
+    title: "Tratamento de Onicocriptose & Infecção (Nível Internacional)",
+    text: "Exame clínico palpatório detalhado, descompressão e conduta terapêutica para unhas encravadas e infeccionadas utilizando técnicas de padrão internacional.",
+    tag: "Unhas infeccionadas, com granuloma ou processos dolorosos recorrentes",
   },
   {
-    title: "Podologia Esportiva & Órteses Plantares",
+    title: "Podologia Esportiva & Confecção de Órteses Plantares",
     text: "Avaliação biomecânica, alívio de sobrecargas e confecção personalizada de órteses plantares para correção e distribuição de pressão.",
-    tag: "Atletas amadores e profissionais em alta performance",
+    tag: "Atletas amadores e profissionais (fisiculturistas, praticantes de pilates e atletas do futebol/clube) que buscam alta performance, prevenção de lesões e alinhamento postural",
   },
   {
     title: "Podologia Clínica Integrativa",
     text: "Exame clínico palpatório, avaliação detalhada, higienização técnica, remoção de calosidades e prevenção contínua.",
-    tag: "Manutenção e prevenção na saúde dos pés",
+    tag: "Manutenção contínua e prevenção de complicações na saúde dos pés",
   },
   {
-    title: "Onicomicose e Infecções Ungueais",
-    text: "Protocolos avançados e seguros para tratamento de fungos, micoses e infecções ungueais com suporte tecnológico.",
-    tag: "Micoses severas, distrofias e alterações de formato",
+    title: "Tratamento de Onicomicose e Infecções",
+    text: "Protocolos avançados e seguros para o tratamento de fungos, micoses e infecções ungueais com suporte tecnológico.",
+    tag: "Unhas com micoses severas, distrofias ou alterações de formato",
   },
   {
     title: "Podologia para Diabéticos",
     text: "Exame clínico palpatório e de sensibilidade, rastreamento preventivo de fissuras e cuidados protetores contínuos.",
-    tag: "Pacientes com diabetes e atenção preventiva especializada",
+    tag: "Pacientes com diabetes que necessitam de atenção preventiva especializada",
   },
   {
     title: "Naturopatia Aplicada à Podologia",
-    text: "Óleos essenciais, fotobiomodulação, laserterapia e terapias naturais focadas nas afecções dos pés.",
-    tag: "Processos inflamatórios, dores e cicatrização tecidual",
+    text: "Uso de óleos essenciais, fotobiomodulação, laserterapia e terapias naturais focadas nas afecções dos pés.",
+    tag: "Processos inflamatórios, dores e aceleração da cicatrização tecidual",
   },
   {
     title: "Naturopatia Integrativa (Geral)",
     text: "Abordagem terapêutica holística focada no reequilíbrio físico, mental e emocional.",
-    tag: "Alívio do estresse, bem-estar e qualidade de vida",
+    tag: "Qualquer pessoa que busca alívio do estresse, bem-estar e qualidade de vida",
   },
 ];
 

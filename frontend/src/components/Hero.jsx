@@ -17,7 +17,7 @@ const MaskedLine = ({ children, delay }) => (
   </span>
 );
 
-const titles = ["Podologista", "Técnica em Podologia", "Naturopata", "Administradora", "CEO do Café com Katia Elaine"];
+const titles = ["Podologista", "Técnica em Podologia", "Naturopata", "Administradora de Empresas", "CEO do Café com Katia Elaine"];
 
 export const Hero = () => {
   const ref = useRef(null);
@@ -66,7 +66,7 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.85 }}
             className="mt-7 text-base sm:text-lg text-suave leading-relaxed max-w-xl text-balance"
           >
-            Conectando a saúde física ao bem-estar mental e emocional, e impulsionando profissionais
+            Conectando a saúde física ao bem-estar mental, físico e emocional, e impulsionando profissionais
             da podologia com técnica de nível internacional, legislação, gestão de alta performance
             e conexões globais.
           </motion.p>
@@ -93,7 +93,7 @@ export const Hero = () => {
               className="inline-flex items-center justify-center gap-2.5 bg-dourado text-perola font-medium px-7 py-4 rounded-full hover:bg-dourado-hover hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
             >
               <GraduationCap size={18} />
-              Conhecer Mentorias
+              Conhecer Mentorias Profissionais
             </a>
             <a
               href={waLink(WA_MSGS.cafe, WA_CAFE_NUMBER)}
@@ -103,7 +103,7 @@ export const Hero = () => {
               className="inline-flex items-center justify-center gap-2.5 border border-roxo/25 text-roxo font-medium px-7 py-4 rounded-full hover:border-dourado hover:text-dourado transition-all duration-300"
             >
               <Coffee size={18} />
-              Participar do Café
+              Participar do Café com Katia Elaine
             </a>
           </motion.div>
         </div>
