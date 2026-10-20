@@ -36,7 +36,7 @@ export const Sobre = () => (
               alt="Katia Elaine, podologista e CEO do Café com Katia Elaine"
               testid="sobre-image"
             />
-            <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap font-script text-3xl sm:text-4xl text-dourado bg-perola/95 px-5 py-2 rounded-2xl shadow-lg rotate-[-2deg]">
+            <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap font-script text-3xl sm:text-4xl text-dourado-hover bg-perola/95 px-5 py-2 rounded-2xl shadow-lg rotate-[-2deg]">
               Katia Elaine
             </span>
           </div>
@@ -66,9 +66,9 @@ export const Sobre = () => (
           <Reveal key={p.title} delay={i * 0.1}>
             <div
               data-testid={`sobre-pilar-${i}`}
-              className="group h-full bg-creme border border-borda rounded-3xl p-7 hover:border-dourado/60 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-20px_rgba(53,27,49,0.25)] transition-all duration-500"
+              className="group h-full bg-creme border border-borda rounded-3xl p-7 hover:border-dourado/60 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-20px_rgba(61,39,57,0.25)] transition-all duration-500"
             >
-              <div className="w-12 h-12 rounded-2xl bg-roxo text-dourado flex items-center justify-center mb-5 group-hover:bg-dourado group-hover:text-perola transition-colors duration-500">
+              <div className="w-12 h-12 rounded-2xl bg-roxo text-dourado flex items-center justify-center mb-5 group-hover:bg-dourado group-hover:text-roxo-deep transition-colors duration-500">
                 <p.icon size={22} />
               </div>
               <h3 className="font-serif text-xl text-roxo leading-snug">{p.title}</h3>

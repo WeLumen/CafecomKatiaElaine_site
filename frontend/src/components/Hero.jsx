@@ -54,7 +54,7 @@ export const Hero = () => {
           <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-roxo">
             <MaskedLine delay={0.3}>Saúde para os pés,</MaskedLine>
             <MaskedLine delay={0.45}>
-              <em className="text-dourado not-italic font-medium italic">estratégia</em> para
+              <em className="text-dourado-hover not-italic font-medium italic">estratégia</em> para
             </MaskedLine>
             <MaskedLine delay={0.6}>a sua carreira.</MaskedLine>
           </h1>
@@ -90,7 +90,7 @@ export const Hero = () => {
             <a
               href="#mentorias"
               data-testid="hero-cta-mentorias"
-              className="inline-flex items-center justify-center gap-2.5 bg-dourado text-perola font-medium px-7 py-4 rounded-full hover:bg-dourado-hover hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+              className="inline-flex items-center justify-center gap-2.5 bg-dourado text-roxo-deep font-semibold px-7 py-4 rounded-full hover:bg-dourado-hover hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
             >
               <GraduationCap size={18} />
               Conhecer Mentorias Profissionais
@@ -100,7 +100,7 @@ export const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               data-testid="hero-cta-cafe"
-              className="inline-flex items-center justify-center gap-2.5 text-roxo font-medium px-3 py-4 underline underline-offset-4 decoration-dourado/60 hover:text-dourado transition-colors duration-300"
+              className="inline-flex items-center justify-center gap-2.5 text-roxo font-medium px-3 py-4 underline underline-offset-4 decoration-dourado/60 hover:text-dourado-hover transition-colors duration-300"
             >
               <Coffee size={18} />
               Participar do Café com Katia Elaine
@@ -118,7 +118,7 @@ export const Hero = () => {
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0 rounded-full gold-ring p-[6px] shadow-[0_40px_80px_-20px_rgba(53,27,49,0.45)]"
+            className="absolute inset-0 rounded-full gold-ring p-[6px] shadow-[0_40px_80px_-20px_rgba(61,39,57,0.45)]"
           >
             <motion.img
               src={logo}
@@ -135,7 +135,7 @@ export const Hero = () => {
             className="absolute -bottom-4 -left-6 sm:-left-10 bg-perola border border-borda rounded-2xl px-5 py-3.5 shadow-xl animate-float-soft"
           >
             <div className="flex items-center gap-2.5">
-              <Trophy size={18} className="text-dourado" />
+              <Trophy size={18} className="text-dourado-hover" />
               <div className="leading-tight">
                 <span className="block text-xs font-semibold text-roxo">Patrocinadora Oficial</span>
                 <span className="block text-[11px] text-suave">WBBF Brasil · Fisiculturismo</span>

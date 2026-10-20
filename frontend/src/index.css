@@ -5,12 +5,12 @@
 @tailwind utilities;
 
 :root {
-    --roxo-principal: #351B31;
-    --roxo-secundario: #542B46;
-    --dourado: #B88D56;
+    --roxo-principal: #5B2D4F;
+    --roxo-secundario: #734B63;
+    --dourado: #FAC504;
     --creme: #F8F5EF;
-    --branco-perola: #FFFDF9;
-    --rose: #E6D8D6;
+    --branco-perola: #FDFBFB;
+    --rose: #D3A8C9;
     --texto-principal: #322A2E;
     --texto-secundario: #6E6467;
     --bordas: #E6DDD3;
@@ -83,7 +83,7 @@ body {
 .animate-float-soft { animation: float-soft 6s ease-in-out infinite; }
 
 .gold-ring {
-    background: conic-gradient(from 0deg, #B88D56, #E6D8D6, #B88D56, #8a6a3e, #B88D56);
+    background: conic-gradient(from 0deg, #FAC504, #F5D29B, #FAC504, #C5953B, #FAC504);
 }
 
 .text-balance { text-wrap: balance; }

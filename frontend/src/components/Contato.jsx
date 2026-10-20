@@ -81,10 +81,10 @@ export const Contato = () => {
                 </span>
                 <div>
                   <span className="block text-sm font-semibold text-roxo">Redes Sociais</span>
-                  <a href={INSTAGRAM_PODOLOGIA} target="_blank" rel="noopener noreferrer" data-testid="contato-instagram-podologia" className="block text-sm text-suave hover:text-dourado transition-colors">
+                  <a href={INSTAGRAM_PODOLOGIA} target="_blank" rel="noopener noreferrer" data-testid="contato-instagram-podologia" className="block text-sm text-suave hover:text-dourado-hover transition-colors">
                     @katiaelaine.podologia
                   </a>
-                  <a href={INSTAGRAM_CAFE} target="_blank" rel="noopener noreferrer" data-testid="contato-instagram-cafe" className="block text-sm text-suave hover:text-dourado transition-colors">
+                  <a href={INSTAGRAM_CAFE} target="_blank" rel="noopener noreferrer" data-testid="contato-instagram-cafe" className="block text-sm text-suave hover:text-dourado-hover transition-colors">
                     @cafecomkatiaelaine
                   </a>
                 </div>
@@ -94,7 +94,7 @@ export const Contato = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="contato-whatsapp-direto"
-                className="inline-flex items-center gap-2.5 bg-roxo text-perola text-sm font-medium px-6 py-3.5 rounded-full hover:bg-dourado transition-colors duration-300"
+                className="inline-flex items-center gap-2.5 bg-roxo text-perola text-sm font-medium px-6 py-3.5 rounded-full hover:bg-dourado hover:text-roxo-deep transition-colors duration-300"
               >
                 <MessageCircle size={17} />
                 Chamar no WhatsApp agora
@@ -114,7 +114,7 @@ export const Contato = () => {
             <form
               onSubmit={submit}
               data-testid="contato-form"
-              className="bg-perola border border-borda rounded-[2rem] p-7 sm:p-10 shadow-[0_30px_70px_-30px_rgba(53,27,49,0.25)]"
+              className="bg-perola border border-borda rounded-[2rem] p-7 sm:p-10 shadow-[0_30px_70px_-30px_rgba(61,39,57,0.25)]"
             >
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>

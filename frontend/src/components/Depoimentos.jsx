@@ -31,7 +31,7 @@ export const Depoimentos = () => (
           <Reveal key={q.testid} delay={i * 0.15}>
             <figure
               data-testid={q.testid}
-              className="h-full bg-creme border border-borda rounded-[2rem] p-8 sm:p-10 relative hover:border-dourado/60 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-20px_rgba(53,27,49,0.25)] transition-all duration-500"
+              className="h-full bg-creme border border-borda rounded-[2rem] p-8 sm:p-10 relative hover:border-dourado/60 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-20px_rgba(61,39,57,0.25)] transition-all duration-500"
             >
               <Quote size={36} className="text-dourado/40 mb-5" strokeWidth={1.5} />
               <blockquote className="font-serif italic text-xl sm:text-2xl text-tinta leading-relaxed">

@@ -38,10 +38,10 @@ export const Mentorias = () => (
           <Reveal key={p.name} delay={i * 0.15}>
             <article
               data-testid={p.testid}
-              className="group h-full bg-perola border border-borda rounded-[2rem] p-8 sm:p-10 hover:border-dourado/60 hover:shadow-[0_30px_60px_-25px_rgba(53,27,49,0.3)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col"
+              className="group h-full bg-perola border border-borda rounded-[2rem] p-8 sm:p-10 hover:border-dourado/60 hover:shadow-[0_30px_60px_-25px_rgba(61,39,57,0.3)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col"
             >
               <div className="flex items-start justify-between gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-roxo text-dourado flex items-center justify-center group-hover:bg-dourado group-hover:text-perola transition-colors duration-500">
+                <div className="w-14 h-14 rounded-2xl bg-roxo text-dourado flex items-center justify-center group-hover:bg-dourado group-hover:text-roxo-deep transition-colors duration-500">
                   <p.icon size={26} strokeWidth={1.75} />
                 </div>
                 <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-dourado-hover bg-creme border border-borda rounded-full px-3.5 py-1.5 text-right">
@@ -53,7 +53,7 @@ export const Mentorias = () => (
               <ul className="mt-6 space-y-3 flex-1">
                 {p.items.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-tinta">
-                    <span className="w-5 h-5 rounded-full bg-dourado/15 text-dourado flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="w-5 h-5 rounded-full bg-dourado/15 text-dourado-hover flex items-center justify-center shrink-0 mt-0.5">
                       <Check size={12} strokeWidth={3} />
                     </span>
                     {item}
@@ -65,7 +65,7 @@ export const Mentorias = () => (
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid={`${p.testid}-cta`}
-                className="inline-flex items-center justify-center gap-2 mt-8 bg-roxo text-perola font-medium px-7 py-3.5 rounded-full hover:bg-dourado transition-colors duration-300"
+                className="inline-flex items-center justify-center gap-2 mt-8 bg-roxo text-perola font-medium px-7 py-3.5 rounded-full hover:bg-dourado hover:text-roxo-deep transition-colors duration-300"
               >
                 Quero me Inscrever na Mentoria
                 <ArrowUpRight size={16} />

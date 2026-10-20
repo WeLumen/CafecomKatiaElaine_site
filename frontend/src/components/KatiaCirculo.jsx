@@ -16,7 +16,7 @@ export const KatiaCirculo = ({ alt, testid, className = "" }) => (
     {/* brilho suave */}
     <div
       className="absolute -inset-[22%] rounded-full pointer-events-none"
-      style={{ background: "radial-gradient(circle, rgba(184,141,86,0.22) 0%, rgba(184,141,86,0.08) 45%, transparent 70%)" }}
+      style={{ background: "radial-gradient(circle, rgba(250,197,4,0.22) 0%, rgba(250,197,4,0.07) 45%, transparent 70%)" }}
     />
     {/* anéis dourados concêntricos */}
     <div className="absolute -inset-[9%] rounded-full border border-dourado/60 pointer-events-none" />
@@ -25,7 +25,7 @@ export const KatiaCirculo = ({ alt, testid, className = "" }) => (
     {/* medalhão liso, com borda branca */}
     <div
       className="absolute inset-0 rounded-full border-[7px] border-perola shadow-[0_30px_70px_-20px_rgba(0,0,0,0.5)]"
-      style={{ background: "radial-gradient(circle at 50% 35%, #7a5272 0%, #55345a 55%, #3d2140 100%)" }}
+      style={{ background: "radial-gradient(circle at 50% 35%, #734B63 0%, #5B2D4F 55%, #3D2739 100%)" }}
     />
 
     {/* foto sem fundo: topo livre, base recortada pela curva do medalhão */}

@@ -28,7 +28,7 @@ export const Nav = () => {
       data-testid="main-nav"
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-perola/90 backdrop-blur-xl border-b border-borda shadow-[0_8px_30px_rgba(53,27,49,0.06)]"
+          ? "bg-perola/90 backdrop-blur-xl border-b border-borda shadow-[0_8px_30px_rgba(61,39,57,0.06)]"
           : "bg-transparent"
       }`}
     >
@@ -41,7 +41,7 @@ export const Nav = () => {
           />
           <div className="leading-tight">
             <span className="font-serif text-lg font-semibold text-roxo block">Katia Elaine</span>
-            <span className="text-[10px] uppercase tracking-[0.22em] text-dourado">Podologia & Mentoria</span>
+            <span className="text-[10px] uppercase tracking-[0.22em] text-dourado-hover">Podologia & Mentoria</span>
           </div>
         </a>
 
@@ -61,7 +61,7 @@ export const Nav = () => {
             target="_blank"
             rel="noopener noreferrer"
             data-testid="nav-cta-agendar"
-            className="inline-flex items-center gap-2 bg-roxo text-perola text-sm font-medium px-5 py-2.5 rounded-full hover:bg-dourado transition-colors duration-300"
+            className="inline-flex items-center gap-2 bg-roxo text-perola text-sm font-medium px-5 py-2.5 rounded-full hover:bg-dourado hover:text-roxo-deep transition-colors duration-300"
           >
             <CalendarCheck size={16} />
             Agendar Consulta

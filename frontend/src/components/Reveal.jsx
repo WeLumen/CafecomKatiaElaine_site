@@ -15,10 +15,10 @@ export const Reveal = ({ children, delay = 0, className = "" }) => (
 export const Eyebrow = ({ children, dark = false }) => (
   <span
     className={`inline-flex items-center gap-2 text-[11px] sm:text-xs uppercase tracking-[0.28em] font-semibold ${
-      dark ? "text-[#B88D56]" : "text-[#A27945]"
+      dark ? "text-[#FAC504]" : "text-[#B68839]"
     }`}
   >
-    <span className="h-px w-8 bg-[#B88D56]" />
+    <span className="h-px w-8 bg-[#FAC504]" />
     {children}
   </span>
 );

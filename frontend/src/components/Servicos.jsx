@@ -1,8 +1,10 @@
 import { Trophy, Dumbbell, Medal, CalendarCheck } from "lucide-react";
 import { Reveal, Eyebrow } from "./Reveal";
 import { waLink, WA_MSGS } from "../lib/site";
+import podoterapiaLogo from "../assets/logos/podoterapia.webp";
+import purePilatesLogo from "../assets/logos/pure-pilates.webp";
 
-const partners = ["Pure Pilates Mooca", "Clube Atlético Juventus (Mooca)", "Zion Gym — Centro de Condicionamento"];
+const partners = ["Clube Atlético Juventus (Mooca)", "Zion Gym — Centro de Condicionamento"];
 
 const services = [
   {
@@ -68,6 +70,18 @@ export const Servicos = () => (
               <strong className="text-dourado">Patrocinadora Oficial WBBF Brasil</strong> (World
               Bodybuilding Federation — Fisiculturismo), com parcerias estratégicas em centros de
               treinamento e clubes:
+            </p>
+            <div className="mt-5 flex items-center gap-3" data-testid="servicos-parceria-logos">
+              <div className="flex-1 h-28 rounded-2xl bg-perola flex items-center justify-center p-3">
+                <img src={podoterapiaLogo} alt="Podoterapia — Equilíbrio entre o corpo e alma" className="max-h-full max-w-full object-contain" loading="lazy" />
+              </div>
+              <span className="w-8 h-8 shrink-0 rounded-full bg-roxo text-dourado flex items-center justify-center text-lg font-semibold leading-none">+</span>
+              <div className="flex-1 h-28 rounded-2xl bg-perola flex items-center justify-center p-3">
+                <img src={purePilatesLogo} alt="Pure Pilates — Mooca Juventus e Mooca Aparajú" className="max-h-full max-w-full object-contain" loading="lazy" />
+              </div>
+            </div>
+            <p className="mt-3 text-xs text-perola/70 leading-relaxed">
+              Parceria Podoterapia + Pure Pilates: benefícios e ofertas exclusivas para clientes.
             </p>
             <div className="flex flex-wrap gap-2 mt-4">
               {partners.map((p) => (
