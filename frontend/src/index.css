@@ -75,6 +75,8 @@ body {
 }
 .animate-spin-slower { animation: spin-slow 80s linear infinite; }
 .animate-spin-slowest { animation: spin-slow 140s linear infinite reverse; }
+.animate-spin-mandala { animation: spin-slow 70s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .animate-spin-mandala { animation: none; } }
 
 @keyframes float-soft {
     0%, 100% { transform: translateY(0); }

@@ -1,7 +1,8 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Footprints, GraduationCap, Coffee, Trophy } from "lucide-react";
-import logo from "../assets/logo-round.png";
+import mandala from "../assets/logos/mandala.webp";
+import centro from "../assets/logos/centro.webp";
 import { waLink, WA_MSGS, WA_CAFE_NUMBER } from "../lib/site";
 
 const MaskedLine = ({ children, delay }) => (
@@ -23,7 +24,6 @@ export const Hero = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const yMedal = useTransform(scrollYProgress, [0, 1], [0, 120]);
-  const rotateMedal = useTransform(scrollYProgress, [0, 1], [0, 45]);
 
   return (
     <section id="hero" ref={ref} className="relative min-h-screen bg-creme overflow-hidden flex items-center pt-24 pb-16">
@@ -120,13 +120,15 @@ export const Hero = () => {
             transition={{ duration: 1.1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="absolute inset-0 rounded-full gold-ring p-[6px] shadow-[0_40px_80px_-20px_rgba(61,39,57,0.45)]"
           >
-            <motion.img
-              src={logo}
-              alt="Mandala Café com Katia Elaine"
+            <div
               data-testid="hero-logo-medallion"
-              style={{ rotate: rotateMedal }}
-              className="w-full h-full rounded-full object-cover"
-            />
+              role="img"
+              aria-label="Logo Café com Katia Elaine"
+              className="relative w-full h-full rounded-full overflow-hidden bg-perola"
+            >
+              <img src={mandala} alt="" aria-hidden className="absolute inset-0 w-full h-full animate-spin-mandala" />
+              <img src={centro} alt="" aria-hidden className="absolute inset-0 w-full h-full" />
+            </div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 24 }}

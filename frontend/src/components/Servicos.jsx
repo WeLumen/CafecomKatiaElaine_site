@@ -1,6 +1,6 @@
 import { Trophy, Dumbbell, Medal, CalendarCheck } from "lucide-react";
 import { Reveal, Eyebrow } from "./Reveal";
-import { waLink, WA_MSGS } from "../lib/site";
+import { waLink, WA_MSGS, WA_PODOTERAPIA_NUMBER } from "../lib/site";
 import podoterapiaLogo from "../assets/logos/podoterapia.webp";
 import purePilatesLogo from "../assets/logos/pure-pilates.webp";
 
@@ -72,16 +72,24 @@ export const Servicos = () => (
               treinamento e clubes:
             </p>
             <div className="mt-5 flex items-center gap-3" data-testid="servicos-parceria-logos">
-              <div className="flex-1 h-28 rounded-2xl bg-perola flex items-center justify-center p-3">
+              <a
+                href={waLink(WA_MSGS.podoterapia, WA_PODOTERAPIA_NUMBER)}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Falar com a Podoterapia no WhatsApp"
+                title="Falar com a Podoterapia no WhatsApp"
+                data-testid="servicos-podoterapia-whatsapp"
+                className="flex-1 h-28 rounded-2xl bg-perola flex items-center justify-center p-3 ring-2 ring-transparent hover:ring-dourado transition-all duration-300"
+              >
                 <img src={podoterapiaLogo} alt="Podoterapia — Equilíbrio entre o corpo e alma" className="max-h-full max-w-full object-contain" loading="lazy" />
-              </div>
+              </a>
               <span className="w-8 h-8 shrink-0 rounded-full bg-roxo text-dourado flex items-center justify-center text-lg font-semibold leading-none">+</span>
               <div className="flex-1 h-28 rounded-2xl bg-perola flex items-center justify-center p-3">
                 <img src={purePilatesLogo} alt="Pure Pilates — Mooca Juventus e Mooca Aparajú" className="max-h-full max-w-full object-contain" loading="lazy" />
               </div>
             </div>
             <p className="mt-3 text-xs text-perola/70 leading-relaxed">
-              Parceria Podoterapia + Pure Pilates: benefícios e ofertas exclusivas para clientes.
+              Parceria Podoterapia + Pure Pilates: benefícios e ofertas exclusivas para clientes. Toque no logo da Podoterapia para falar no WhatsApp.
             </p>
             <div className="flex flex-wrap gap-2 mt-4">
               {partners.map((p) => (
