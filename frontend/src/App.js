@@ -5,6 +5,7 @@ import Lenis from "lenis";
 import { Toaster } from "sonner";
 import Home from "@/pages/Home";
 import Admin from "@/pages/Admin";
+import Aperfeicoamento from "@/pages/Aperfeicoamento";
 
 function App() {
   useEffect(() => {
@@ -26,6 +27,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/aperfeicoamento-podologia" element={<Aperfeicoamento />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>
       </BrowserRouter>

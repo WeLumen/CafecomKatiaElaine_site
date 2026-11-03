@@ -33,7 +33,7 @@ export const Footer = () => (
         <nav className="flex flex-col gap-2.5">
           <span className="text-[11px] uppercase tracking-[0.25em] text-dourado font-semibold mb-1">Navegação</span>
           {links.map(([label, href]) => (
-            <a key={href} href={href} data-testid={`footer-link-${href.slice(1)}`} className="text-sm text-perola/60 hover:text-dourado transition-colors">
+            <a key={href} href={`/${href}`} data-testid={`footer-link-${href.slice(1)}`} className="text-sm text-perola/60 hover:text-dourado transition-colors">
               {label}
             </a>
           ))}

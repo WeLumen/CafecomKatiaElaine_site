@@ -33,11 +33,12 @@ export const Hero = () => {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-[1.15fr_0.85fr] gap-14 items-center relative">
         <div>
           <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-roxo">
-            <MaskedLine delay={0.3}>Saúde para os pés,</MaskedLine>
-            <MaskedLine delay={0.45}>
-              <em className="text-dourado-hover not-italic font-medium italic">estratégia</em> para
+            <MaskedLine delay={0.3}>Ciência e saúde</MaskedLine>
+            <MaskedLine delay={0.4}>para os seus pés,</MaskedLine>
+            <MaskedLine delay={0.5}>
+              <em className="text-dourado-hover not-italic font-medium italic">estratégia e mentorias</em>
             </MaskedLine>
-            <MaskedLine delay={0.6}>a sua carreira.</MaskedLine>
+            <MaskedLine delay={0.6}>para sua carreira.</MaskedLine>
           </h1>
 
           <motion.p
@@ -47,9 +48,12 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.85 }}
             className="mt-7 text-base sm:text-lg text-suave leading-relaxed max-w-xl text-balance"
           >
-            Conectando a saúde física ao bem-estar mental, físico e emocional, e impulsionando profissionais
-            da podologia com técnica de nível internacional, legislação, gestão de alta performance
-            e conexões globais.
+            Conectando ciência e prática podológica.
+            <span className="block mt-3">
+              Impulsionando e conectando profissionais da podologia para construir uma carreira de sucesso,
+              desde a prática clínica até as mentorias administrativas, cursos e parcerias, promovendo
+              conhecimento em legislação, gestão, alta performance e conexões globais.
+            </span>
           </motion.p>
 
           <motion.div
