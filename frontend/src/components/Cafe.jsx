@@ -1,14 +1,25 @@
-import { Coffee, Mic, Users, CalendarDays, ArrowUpRight } from "lucide-react";
+import { Coffee, Mic, Users, CalendarDays, ArrowUpRight, MessagesSquare, Radio } from "lucide-react";
 import { Reveal, Eyebrow } from "./Reveal";
 import { waLink, WA_MSGS, WA_CAFE_NUMBER } from "../lib/site";
 import logo from "../assets/logo-round.png";
 import { KatiaCirculo } from "./KatiaCirculo";
 
+const mastermindLinks = {
+  canal: process.env.REACT_APP_MASTERMIND_CANAL_URL || "https://whatsapp.com/channel/0029Vae1xNzH5JM1jlwjs423",
+  grupo: process.env.REACT_APP_MASTERMIND_GRUPO_URL || "https://chat.whatsapp.com/JnVCYmInwsq8UBlworURvH",
+};
+
 const formats = [
   {
     icon: CalendarDays,
     title: "Reuniões Semestrais & Mesas Redondas",
-    text: "Discussões profundas sobre casos clínicos, regulamentação da profissão, legislação e novidades do mercado internacional.",
+    text: "Discussões e debates sobre gestão de clínicas, finanças, vigilância sanitária e legislação, com foco na regularização profissional e nas novidades do mercado.",
+  },
+  {
+    icon: MessagesSquare,
+    title: "Mastermind Podológico — Conecte-se e Cresça",
+    text: "Encontros presenciais mensais na região de São Paulo, exclusivos para podólogos trocarem experiências, estratégias e conhecimentos práticos.",
+    mastermind: true,
   },
   {
     icon: Mic,
@@ -58,6 +69,35 @@ export const Cafe = () => (
                   <div>
                     <h3 className="font-serif text-lg text-perola">{f.title}</h3>
                     <p className="mt-1 text-sm text-perola/60 leading-relaxed">{f.text}</p>
+                    {f.mastermind && (
+                      <div className="mt-4 flex flex-col sm:flex-row gap-2">
+                        {[
+                          { label: "Acessar canal", icon: Radio, url: mastermindLinks.canal },
+                          { label: "Entrar no grupo", icon: Users, url: mastermindLinks.grupo },
+                        ].map((action) => (
+                          action.url ? (
+                            <a
+                              key={action.label}
+                              href={action.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center justify-center gap-2 rounded-full border border-dourado/60 px-4 py-2 text-sm font-semibold text-dourado hover:bg-dourado hover:text-roxo-deep transition-colors"
+                            >
+                              <action.icon size={16} />{action.label}<ArrowUpRight size={14} />
+                            </a>
+                          ) : (
+                            <span
+                              key={action.label}
+                              aria-label={`${action.label}: link ainda não informado`}
+                              className="inline-flex items-center justify-center gap-2 rounded-full border border-perola/20 px-4 py-2 text-sm text-perola/50 cursor-not-allowed"
+                              title="Link ainda não informado"
+                            >
+                              <action.icon size={16} />{action.label} · em breve
+                            </span>
+                          )
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               </Reveal>

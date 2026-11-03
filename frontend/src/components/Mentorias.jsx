@@ -21,8 +21,16 @@ const programs = [
     name: "Mentoria de Gestão, Administração & Negócios",
     label: "On-line ao vivo e gravado · ou consultoria individual",
     focus:
-      "Gestão aplicada à podologia por quem entende de administração de empresas: legislação, regulamentação e finanças.",
-    items: ["Precificação lucrativa e controle de caixa", "Gestão de estoque e estruturação de consultório", "Estratégias de posicionamento no mercado"],
+      "Gestão aplicada à podologia, com expertise e metodologia apoiadas em Administração de Empresas, Comércio Exterior e Recursos Humanos. Uma abordagem que integra a organização do consultório, o atendimento e o posicionamento profissional.",
+    items: [
+      "Análise de precificação e gestão de vendas, estoque e caixa",
+      "Gestão de consultório e atendimento ao cliente",
+      "Orientações sobre vigilância sanitária, questões contábeis e arquitetura do espaço",
+      "Humanização dos ambientes e Feng Shui",
+      "Posicionamento no mercado, marketing, marca e identidade visual (logo)",
+      "WhatsApp Business, redes sociais, inteligência artificial e Media Cast",
+      "Outros temas voltados ao desenvolvimento do negócio",
+    ],
     testid: "mentoria-gestao",
   },
 ];
@@ -126,7 +134,7 @@ export const Mentorias = () => {
                 data-testid={`${p.testid}-cta`}
                 className="inline-flex items-center justify-center gap-2 mt-8 bg-roxo text-perola font-medium px-7 py-3.5 rounded-full hover:bg-dourado hover:text-roxo-deep transition-colors duration-300"
               >
-                {p.practical ? "Consultar turma e inscrição" : "Quero me Inscrever na Mentoria"}
+                {p.practical ? "Consultar turma e inscrição" : "Quero saber mais"}
                 <ArrowUpRight size={16} />
               </a>}
             </article>

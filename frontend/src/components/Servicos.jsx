@@ -3,8 +3,9 @@ import { Reveal, Eyebrow } from "./Reveal";
 import { waLink, WA_MSGS, WA_PODOTERAPIA_NUMBER } from "../lib/site";
 import podoterapiaLogo from "../assets/logos/podoterapia.webp";
 import purePilatesLogo from "../assets/logos/pure-pilates.webp";
+import zionGymLogo from "../assets/logos/zion-gym-referencia.png";
 
-const partners = ["Clube Atlético Juventus (Mooca)", "Zion Gym — Centro de Condicionamento"];
+const partners = ["Clube Atlético Juventus — Mooca", "Zion Gym — unidade Brás"];
 
 const services = [
   {
@@ -14,8 +15,8 @@ const services = [
   },
   {
     title: "Podologia Esportiva & Confecção de Órteses Plantares",
-    text: "Avaliação biomecânica, alívio de sobrecargas e confecção personalizada de órteses plantares para correção e distribuição de pressão.",
-    tag: "Atletas amadores e profissionais (fisiculturistas, praticantes de pilates e atletas do futebol/clube) que buscam alta performance, prevenção de lesões e alinhamento postural",
+    text: "Avaliação biomecânica, cuidado com sobrecargas, alterações de pressão e lesões recorrentes, além da confecção personalizada de órteses plantares para melhor distribuição da pressão.",
+    tag: "Atletas amadores e profissionais, praticantes de musculação, pilates, dança, natação, futebol e esportes em geral que buscam desempenho, prevenção de lesões e cuidado com os pés",
   },
   {
     title: "Podologia Clínica Integrativa",
@@ -67,9 +68,7 @@ export const Servicos = () => (
               </span>
             </div>
             <p className="text-perola/85 text-sm sm:text-base leading-relaxed">
-              <strong className="text-dourado">Patrocinadora Oficial WBBF Brasil</strong> (World
-              Bodybuilding Federation — Fisiculturismo), com parcerias estratégicas em centros de
-              treinamento e clubes:
+              <strong className="text-dourado">Patrocinadora Oficial WBPF Brasil</strong> (fisiculturismo), com atendimento a atletas e premiações para vencedores de competições, além de parcerias estratégicas com academias e clubes:
             </p>
             <div className="mt-5 flex items-center gap-3" data-testid="servicos-parceria-logos">
               <a
@@ -85,12 +84,22 @@ export const Servicos = () => (
               </a>
               <span className="w-8 h-8 shrink-0 rounded-full bg-roxo text-dourado flex items-center justify-center text-lg font-semibold leading-none">+</span>
               <div className="flex-1 h-28 rounded-2xl bg-perola flex items-center justify-center p-3">
-                <img src={purePilatesLogo} alt="Pure Pilates — Mooca Juventus e Mooca Aparajú" className="max-h-full max-w-full object-contain" loading="lazy" />
+                <img src={purePilatesLogo} alt="Pure Pilates — unidades da Mooca" className="max-h-full max-w-full object-contain" loading="lazy" />
               </div>
             </div>
             <p className="mt-3 text-xs text-perola/70 leading-relaxed">
-              Parceria Podoterapia + Pure Pilates: benefícios e ofertas exclusivas para clientes. Toque no logo da Podoterapia para falar no WhatsApp.
+              Podoterapia + Pure Pilates: benefícios e condições especiais para clientes das unidades Mooca e Mooca Juventus. Toque no logo da Podoterapia para informações pelo WhatsApp.
             </p>
+            <div className="mt-5 rounded-2xl border border-perola/15 bg-roxo-deep/40 p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4">
+              <div className="w-full sm:w-40 shrink-0 h-20 rounded-xl bg-[#130e13] flex items-center justify-center p-2">
+                <img src={zionGymLogo} alt="Zion Gym — marca presente no material de parceria enviado" className="max-h-full max-w-full object-contain" loading="lazy" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-perola">Parceria Zion Gym — unidade Brás</p>
+                <p className="text-xs text-perola/70 mt-1 leading-relaxed">Condição divulgada para alunos Zion Gym: atendimento podológico por R$ 135,00. Consulte disponibilidade e regras da parceria.</p>
+                <a href={waLink(WA_MSGS.podoterapia, WA_PODOTERAPIA_NUMBER)} target="_blank" rel="noopener noreferrer" className="inline-flex mt-2 text-xs font-semibold text-dourado hover:text-perola">Consultar condição especial ↗</a>
+              </div>
+            </div>
             <div className="flex flex-wrap gap-2 mt-4">
               {partners.map((p) => (
                 <span

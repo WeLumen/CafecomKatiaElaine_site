@@ -125,7 +125,7 @@ export const Hero = () => {
               <Trophy size={18} className="text-dourado-hover" />
               <div className="leading-tight">
                 <span className="block text-xs font-semibold text-roxo">Patrocinadora Oficial</span>
-                <span className="block text-[11px] text-suave">WBBF Brasil · Fisiculturismo</span>
+                <span className="block text-[11px] text-suave">WBPF Brasil · Fisiculturismo</span>
               </div>
             </div>
           </motion.div>

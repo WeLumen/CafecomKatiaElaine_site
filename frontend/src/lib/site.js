@@ -11,6 +11,7 @@ export const WA_MSGS = {
   cafe: "Olá, Katia! Quero participar do Café com Katia Elaine.",
   consulta: "Olá, Katia! Gostaria de agendar minha consulta clínica.",
   podoterapia: "Olá! Gostaria de saber mais sobre a Podoterapia.",
+  reuniaoGestora: "Olá! Gostaria de agendar uma reunião com a gestora da Diáspora Business. Sei que os atendimentos ocorrem às segundas e quintas-feiras, conforme agenda e demanda. Poderia me informar a disponibilidade?",
 };
 
 // Preencha com o horário real de atendimento (ex.: "Seg a Sex · 9h às 18h"). Se ficar vazio, não aparece no site.

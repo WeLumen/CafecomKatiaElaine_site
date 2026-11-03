@@ -1,6 +1,6 @@
 const items = [
   "Podologia Clínica",
-  "Podologia Esportiva WBBF",
+  "Podologia Esportiva WBPF",
   "Naturopatia Integrativa",
   "Gestão de Clínicas",
   "Mentoria Hands-On",

@@ -1,6 +1,6 @@
 import { Landmark, Globe, Network, ArrowUpRight } from "lucide-react";
 import { Reveal, Eyebrow } from "./Reveal";
-import { INSTAGRAM_ABP, INSTAGRAM_CASA_ANGOLA, INSTAGRAM_DIASPORA } from "../lib/site";
+import { INSTAGRAM_ABP, INSTAGRAM_CASA_ANGOLA, INSTAGRAM_DIASPORA, waLink, WA_MSGS } from "../lib/site";
 import abpLogo from "../assets/logos/abp-claro.webp";
 import diasporaLogo from "../assets/logos/diaspora.webp";
 import casaAngolaLogo from "../assets/logos/casa-de-angola-hub.png";
@@ -25,7 +25,7 @@ const orgs = [
     logoAlt: "Logo da Casa de Angola Hub — Centro de Intercâmbio Angola-Brasil",
     logoGlow: true,
     name: "Casa de Angola Hub",
-    cargos: ["Embaixadora da Casa de Angola Hub Diaspora Business"],
+    cargos: ["Embaixadora da Casa de Angola Hub — Diáspora Business"],
     text: "Ponte comercial entre a podologia brasileira, a África e a diáspora internacional.",
     cta: "Acessar Casa de Angola Hub",
     href: INSTAGRAM_CASA_ANGOLA,
@@ -37,8 +37,8 @@ const orgs = [
     logo: diasporaLogo,
     logoAlt: "Logo da Diáspora Business — Negócios África-Brasil",
     name: "Diaspora Business",
-    cargos: ["Diretora de Relações Nacionais e Internacionais"],
-    text: "Expansão de conexões globais e intercâmbio técnico-científico.",
+    cargos: ["Diretora de Relações Internacionais da Diáspora Business"],
+    text: "Conexões internacionais, intercâmbio e articulação de oportunidades, com atenção a desafios e necessidades recorrentes do setor.",
     cta: "Acessar Diaspora Business",
     href: INSTAGRAM_DIASPORA,
     testid: "atuacao-diaspora",
@@ -83,6 +83,12 @@ export const Atuacao = () => (
                 ))}
               </div>
               <p className="relative mt-5 text-sm sm:text-base text-perola/70 leading-relaxed flex-1">{o.text}</p>
+              {o.name === "Diaspora Business" && (
+                <div className="relative mt-5 rounded-xl border border-dourado/30 bg-roxo-deep/30 px-4 py-4">
+                  <p className="text-sm text-perola/80 leading-relaxed">Reuniões com a gestora às segundas e quintas-feiras, conforme agenda e demanda.</p>
+                  <a href={waLink(WA_MSGS.reuniaoGestora)} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-2 rounded-full bg-dourado px-4 py-2.5 text-sm font-semibold text-roxo-deep hover:bg-perola transition-colors">Agendar reunião com a gestora <ArrowUpRight size={15}/></a>
+                </div>
+              )}
               <a
                 href={o.href}
                 target="_blank"
