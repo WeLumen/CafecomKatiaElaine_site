@@ -45,7 +45,7 @@ export const Footer = () => (
             <MapPin size={15} className="text-dourado" /> Brás · São Paulo - SP
           </span>
           <a href={INSTAGRAM_PODOLOGIA} target="_blank" rel="noopener noreferrer" data-testid="footer-instagram-podologia" className="inline-flex items-center gap-2 text-sm text-perola/60 hover:text-dourado transition-colors">
-            <Instagram size={15} className="text-dourado" /> @katiaelaine.podologia
+            <Instagram size={15} className="text-dourado" /> @akatiaelaine
           </a>
           <a href={INSTAGRAM_CAFE} target="_blank" rel="noopener noreferrer" data-testid="footer-instagram-cafe" className="inline-flex items-center gap-2 text-sm text-perola/60 hover:text-dourado transition-colors">
             <Instagram size={15} className="text-dourado" /> @cafecomkatiaelaine

@@ -82,7 +82,7 @@ export const Contato = () => {
                 <div>
                   <span className="block text-sm font-semibold text-roxo">Redes Sociais</span>
                   <a href={INSTAGRAM_PODOLOGIA} target="_blank" rel="noopener noreferrer" data-testid="contato-instagram-podologia" className="block text-sm text-suave hover:text-dourado-hover transition-colors">
-                    @katiaelaine.podologia
+                    @akatiaelaine
                   </a>
                   <a href={INSTAGRAM_CAFE} target="_blank" rel="noopener noreferrer" data-testid="contato-instagram-cafe" className="block text-sm text-suave hover:text-dourado-hover transition-colors">
                     @cafecomkatiaelaine

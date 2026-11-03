@@ -13,7 +13,6 @@ const orgs = [
     logo: abpLogo,
     logoAlt: "Logo da Associação Brasileira de Podólogos (ABP)",
     name: "Associação Brasileira de Podólogos",
-    sigla: "ABP",
     cargos: ["Diretora de Marketing e Patrimônio", "Secretaria Geral"],
     text: "Fortalecimento da classe, valorização da podologia no Brasil, gestão patrimonial e articulação de comunicação institucional.",
     cta: "Acessar ABP",
@@ -26,7 +25,6 @@ const orgs = [
     logoAlt: "Logo da Casa de Angola Hub — Centro de Intercâmbio Angola-Brasil",
     logoGlow: true,
     name: "Casa de Angola Hub",
-    sigla: "Relações Internacionais",
     cargos: ["Embaixadora da Casa de Angola Hub Diaspora Business"],
     text: "Ponte comercial entre a podologia brasileira, a África e a diáspora internacional.",
     cta: "Acessar Casa de Angola Hub",
@@ -39,7 +37,6 @@ const orgs = [
     logo: diasporaLogo,
     logoAlt: "Logo da Diáspora Business — Negócios África-Brasil",
     name: "Diaspora Business",
-    sigla: "Diplomacia Corporativa",
     cargos: ["Diretora de Relações Nacionais e Internacionais"],
     text: "Expansão de conexões globais e intercâmbio técnico-científico.",
     cta: "Acessar Diaspora Business",
@@ -74,8 +71,7 @@ export const Atuacao = () => (
                   <o.icon size={48} className="text-dourado" strokeWidth={1.5} />
                 )}
               </div>
-              <span className="relative text-[11px] uppercase tracking-[0.25em] text-dourado font-semibold">{o.sigla}</span>
-              <h3 className="relative font-serif text-2xl sm:text-3xl mt-2 leading-snug">{o.name}</h3>
+              <h3 className="relative font-serif text-2xl sm:text-3xl leading-snug">{o.name}</h3>
               <div className="relative flex flex-wrap gap-2 mt-5">
                 {o.cargos.map((c) => (
                   <span
