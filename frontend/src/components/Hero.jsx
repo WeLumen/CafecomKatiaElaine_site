@@ -18,8 +18,6 @@ const MaskedLine = ({ children, delay }) => (
   </span>
 );
 
-const titles = ["Podologista", "Técnica em Podologia", "Naturopata", "Administradora de Empresas", "CEO do Café com Katia Elaine"];
-
 export const Hero = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
@@ -34,23 +32,6 @@ export const Hero = () => {
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-[1.15fr_0.85fr] gap-14 items-center relative">
         <div>
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="flex flex-wrap gap-2 mb-8"
-          >
-            {titles.map((t, i) => (
-              <span
-                key={t}
-                data-testid={`hero-title-badge-${i}`}
-                className="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] font-medium text-roxo bg-perola border border-borda rounded-full px-3 py-1.5"
-              >
-                {t}
-              </span>
-            ))}
-          </motion.div>
-
           <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-roxo">
             <MaskedLine delay={0.3}>Saúde para os pés,</MaskedLine>
             <MaskedLine delay={0.45}>

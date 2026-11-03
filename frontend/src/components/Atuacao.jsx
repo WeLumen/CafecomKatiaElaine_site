@@ -3,7 +3,7 @@ import { Reveal, Eyebrow } from "./Reveal";
 import { INSTAGRAM_ABP, INSTAGRAM_CASA_ANGOLA, INSTAGRAM_DIASPORA } from "../lib/site";
 import abpLogo from "../assets/logos/abp-claro.webp";
 import diasporaLogo from "../assets/logos/diaspora.webp";
-import casaAngolaLogo from "../assets/logos/casa-de-angola.jpg";
+import casaAngolaLogo from "../assets/logos/casa-de-angola-hub.png";
 
 // Para colocar o logo de uma organização: salve a imagem (sem fundo) em src/assets/logos,
 // importe aqui e passe em `logo`. Enquanto não houver logo, o card mostra o ícone em `icon`.
@@ -24,7 +24,7 @@ const orgs = [
     icon: Globe,
     logo: casaAngolaLogo,
     logoAlt: "Logo da Casa de Angola Hub — Centro de Intercâmbio Angola-Brasil",
-    logoRounded: true,
+    logoGlow: true,
     name: "Casa de Angola Hub",
     sigla: "Relações Internacionais",
     cargos: ["Embaixadora da Casa de Angola Hub Diaspora Business"],
@@ -67,9 +67,9 @@ export const Atuacao = () => (
               className="group relative h-full bg-roxo text-perola rounded-[2rem] p-8 sm:p-9 overflow-hidden flex flex-col hover:-translate-y-1.5 transition-transform duration-500"
             >
               <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-dourado/10 blur-2xl group-hover:bg-dourado/20 transition-colors duration-700" />
-              <div className="relative h-28 flex items-center mb-6">
+              <div className="relative h-32 flex items-center mb-6">
                 {o.logo ? (
-                  <img src={o.logo} alt={o.logoAlt} className={`max-h-full max-w-full object-contain object-left ${o.logoRounded ? "rounded-2xl" : ""}`} loading="lazy" />
+                  <img src={o.logo} alt={o.logoAlt} className={`max-h-full max-w-full object-contain object-left ${o.logoGlow ? "drop-shadow-[0_0_6px_rgba(253,251,251,0.9)]" : ""}`} loading="lazy" />
                 ) : (
                   <o.icon size={48} className="text-dourado" strokeWidth={1.5} />
                 )}
