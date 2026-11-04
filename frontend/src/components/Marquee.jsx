@@ -5,7 +5,8 @@ const items = [
   "Gestão de Clínicas",
   "Mentoria Hands-On",
   "Café com Katia Elaine",
-  "ABP",
+  "ABP - Associação Brasileira de Podólogos",
+  "Mastermind Podológico",
   "Casa de Angola Hub",
 ];
 
