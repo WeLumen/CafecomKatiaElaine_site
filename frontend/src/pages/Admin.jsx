@@ -14,12 +14,12 @@ export default function Admin() {
   const load = async (k) => {
     setLoading(true);
     try {
-      const { data } = await axios.get(`${API}/contacts`, { params: { key: k } });
+      const { data } = await axios.get(`${API}/contacts`, { headers: { "X-Admin-Key": k } });
       setContacts(data);
       sessionStorage.setItem("admin_key", k);
-    } catch {
+    } catch (error) {
       setContacts(null);
-      toast.error("Chave inválida. Tente novamente.");
+      toast.error(error.response?.status === 401 ? "Chave inválida. Tente novamente." : "Não foi possível consultar os contatos. Verifique a configuração do banco e tente novamente.");
     } finally {
       setLoading(false);
     }

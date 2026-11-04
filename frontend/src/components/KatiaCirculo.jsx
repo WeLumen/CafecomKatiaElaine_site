@@ -11,7 +11,7 @@ const Sparkle = ({ className = "", size = 22 }) => (
  * Anéis dourados concêntricos, brilho suave e estrelinhas ao redor.
  * A cabeça "salta" para fora do topo; o corpo é cortado pela curva inferior.
  */
-export const KatiaCirculo = ({ alt, testid, className = "" }) => (
+export const KatiaCirculo = ({ alt, testid, className = "", fotoAlternativa = null }) => (
   <div className={`relative w-full aspect-square ${className}`}>
     {/* brilho suave */}
     <div
@@ -28,25 +28,38 @@ export const KatiaCirculo = ({ alt, testid, className = "" }) => (
       style={{ background: "radial-gradient(circle at 50% 35%, #734B63 0%, #5B2D4F 55%, #3D2739 100%)" }}
     />
 
-    {/* foto sem fundo: topo livre, base recortada pela curva do medalhão */}
-    <div
-      className="absolute inset-[3%]"
-      style={{ clipPath: "inset(-30% 0 0 0 round 0 0 9999px 9999px)" }}
-    >
-      <img
-        src={katiaRecorte}
-        alt={alt}
-        data-testid={testid}
-        className="absolute h-auto"
-        style={{
-          width: "92%",
-          left: "4%",
-          top: "-16%",
-          WebkitMaskImage: "linear-gradient(to right, transparent, #000 6%, #000 94%, transparent)",
-          maskImage: "linear-gradient(to right, transparent, #000 6%, #000 94%, transparent)",
-        }}
-      />
-    </div>
+    {/* A seção do Café usa a fotografia original, sem alterar o rosto. */}
+    {fotoAlternativa ? (
+      <div className="absolute inset-[7px] rounded-full overflow-hidden">
+        <img
+          src={fotoAlternativa}
+          alt={alt}
+          data-testid={testid}
+          className="w-full h-full object-cover"
+          style={{ objectPosition: "center 38%" }}
+        />
+      </div>
+    ) : (
+      /* Demais seções mantêm a imagem recortada original. */
+      <div
+        className="absolute inset-[3%]"
+        style={{ clipPath: "inset(-30% 0 0 0 round 0 0 9999px 9999px)" }}
+      >
+        <img
+          src={katiaRecorte}
+          alt={alt}
+          data-testid={testid}
+          className="absolute h-auto"
+          style={{
+            width: "92%",
+            left: "4%",
+            top: "-16%",
+            WebkitMaskImage: "linear-gradient(to right, transparent, #000 6%, #000 94%, transparent)",
+            maskImage: "linear-gradient(to right, transparent, #000 6%, #000 94%, transparent)",
+          }}
+        />
+      </div>
+    )}
 
     {/* estrelinhas */}
     <Sparkle className="-top-[6%] right-[-14%]" size={26} />

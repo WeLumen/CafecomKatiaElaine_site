@@ -1,6 +1,6 @@
 import { Landmark, Globe, Network, ArrowUpRight } from "lucide-react";
 import { Reveal, Eyebrow } from "./Reveal";
-import { INSTAGRAM_ABP, INSTAGRAM_CASA_ANGOLA, INSTAGRAM_DIASPORA, waLink, WA_MSGS } from "../lib/site";
+import { INSTAGRAM_ABP, INSTAGRAM_CASA_ANGOLA, INSTAGRAM_DIASPORA, waLink, WA_MSGS, WA_MENTORIAS_NUMBER, WA_ASSOCIACAO_NUMBER } from "../lib/site";
 import abpLogo from "../assets/logos/abp-claro.webp";
 import diasporaLogo from "../assets/logos/diaspora.webp";
 import casaAngolaLogo from "../assets/logos/casa-de-angola-hub.png";
@@ -94,8 +94,19 @@ export const Atuacao = () => (
               {o.name === "Diaspora Business" && (
                 <div className="relative mt-5 rounded-xl border border-dourado/30 bg-roxo-deep/30 px-4 py-4">
                   <p className="text-sm text-perola/80 leading-relaxed">Reuniões com a gestora às segundas e quintas-feiras, conforme agenda e demanda.</p>
-                  <a href={waLink(WA_MSGS.reuniaoGestora)} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-2 rounded-full bg-dourado px-4 py-2.5 text-sm font-semibold text-roxo-deep hover:bg-perola transition-colors">Agendar reunião com a gestora <ArrowUpRight size={15}/></a>
+                  <a href={waLink(WA_MSGS.reuniaoGestora, WA_MENTORIAS_NUMBER)} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-2 rounded-full bg-dourado px-4 py-2.5 text-sm font-semibold text-roxo-deep hover:bg-perola transition-colors">Agendar reunião com a gestora <ArrowUpRight size={15}/></a>
                 </div>
+              )}
+              {o.testid === "atuacao-abp" && (
+                <a
+                  href={waLink(WA_MSGS.associacao, WA_ASSOCIACAO_NUMBER)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="atuacao-abp-associar"
+                  className="relative mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-dourado px-5 py-3 text-sm font-semibold text-roxo-deep hover:bg-perola transition-colors"
+                >
+                  Quero me associar <ArrowUpRight size={16} />
+                </a>
               )}
               {o.href && <a
                 href={o.href}

@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "sonner";
 import { GraduationCap, LineChart, Check, ArrowUpRight, X, Send, Loader2, Wallet } from "lucide-react";
 import { Reveal, Eyebrow } from "./Reveal";
-import { waLink, WA_MSGS } from "../lib/site";
+import { waLink, WA_MSGS, WA_MENTORIAS_NUMBER } from "../lib/site";
 
 const programs = [
   {
@@ -128,7 +128,7 @@ export const Mentorias = () => {
                 </div>
               )}
               {!p.practical && <a
-                href={waLink(p.practical ? "Olá! Tenho interesse no Aperfeiçoamento Prático de Podologia Clínica no Arsenal da Esperança. Gostaria de saber a disponibilidade da próxima turma e como me inscrever." : WA_MSGS.mentoria)}
+                href={waLink(p.practical ? "Olá! Tenho interesse no Aperfeiçoamento Prático de Podologia Clínica no Arsenal da Esperança. Gostaria de saber a disponibilidade da próxima turma e como me inscrever." : WA_MSGS.mentoria, WA_MENTORIAS_NUMBER)}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid={`${p.testid}-cta`}

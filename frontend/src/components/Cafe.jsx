@@ -2,6 +2,7 @@ import { Coffee, Mic, Users, CalendarDays, ArrowUpRight, MessagesSquare, Radio }
 import { Reveal, Eyebrow } from "./Reveal";
 import { waLink, WA_MSGS, WA_CAFE_NUMBER } from "../lib/site";
 import logo from "../assets/logo-round.png";
+import katiaCafeClinica from "../assets/katia-cafe-clinica.png";
 import { KatiaCirculo } from "./KatiaCirculo";
 
 const mastermindLinks = {
@@ -122,6 +123,7 @@ export const Cafe = () => (
             <KatiaCirculo
               alt="Katia Elaine, idealizadora do Café com Katia Elaine"
               testid="cafe-image"
+              fotoAlternativa={katiaCafeClinica}
             />
           </div>
         </Reveal>
