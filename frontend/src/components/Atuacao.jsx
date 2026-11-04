@@ -25,6 +25,8 @@ const orgs = [
     logo: casaAngolaLogo,
     logoAlt: "Logo da Casa de Angola Hub — Centro de Intercâmbio Angola-Brasil",
     logoGlow: true,
+    secondaryLogo: cnbLogo,
+    secondaryLogoAlt: "Logo CNB Networking Angola–Brasil — Conexões, Negócios e Intercâmbio",
     name: "Casa de Angola Hub",
     cargos: ["Embaixadora da Casa de Angola Hub — Diáspora Business"],
     text: "Ponte comercial entre a podologia brasileira, a África e a diáspora internacional.",
@@ -45,15 +47,6 @@ const orgs = [
     testid: "atuacao-diaspora",
     ctaTestid: "atuacao-diaspora-cta",
   },
-  {
-    icon: Network,
-    logo: cnbLogo,
-    logoAlt: "Logo CNB Networking Angola–Brasil — Conexões, Negócios e Intercâmbio",
-    name: "CNB Networking Angola–Brasil",
-    cargos: [],
-    text: "Conexões, negócios e intercâmbio entre Angola e Brasil.",
-    testid: "atuacao-cnb",
-  },
 ];
 
 export const Atuacao = () => (
@@ -66,7 +59,7 @@ export const Atuacao = () => (
         </h2>
       </Reveal>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {orgs.map((o, i) => (
           <Reveal key={o.name} delay={i * 0.12}>
             <article
@@ -74,9 +67,14 @@ export const Atuacao = () => (
               className="group relative h-full bg-roxo text-perola rounded-[2rem] p-8 sm:p-9 overflow-hidden flex flex-col hover:-translate-y-1.5 transition-transform duration-500"
             >
               <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-dourado/10 blur-2xl group-hover:bg-dourado/20 transition-colors duration-700" />
-              <div className="relative h-32 flex items-center mb-6">
+              <div className="relative h-32 flex items-center gap-4 mb-6 min-w-0">
                 {o.logo ? (
-                  <img src={o.logo} alt={o.logoAlt} className={`max-h-full max-w-full object-contain object-left ${o.logoGlow ? "drop-shadow-[0_0_6px_rgba(253,251,251,0.9)]" : ""}`} loading="lazy" />
+                  <>
+                    <img src={o.logo} alt={o.logoAlt} className={`min-w-0 max-h-full object-contain object-left ${o.secondaryLogo ? "w-[46%]" : "max-w-full"} ${o.logoGlow ? "drop-shadow-[0_0_6px_rgba(253,251,251,0.9)]" : ""}`} loading="lazy" />
+                    {o.secondaryLogo && (
+                      <img src={o.secondaryLogo} alt={o.secondaryLogoAlt} className="w-[50%] min-w-0 max-h-full object-contain object-center" loading="lazy" />
+                    )}
+                  </>
                 ) : (
                   <o.icon size={48} className="text-dourado" strokeWidth={1.5} />
                 )}
