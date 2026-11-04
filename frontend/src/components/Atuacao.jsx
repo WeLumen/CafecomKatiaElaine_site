@@ -4,6 +4,7 @@ import { INSTAGRAM_ABP, INSTAGRAM_CASA_ANGOLA, INSTAGRAM_DIASPORA, waLink, WA_MS
 import abpLogo from "../assets/logos/abp-claro.webp";
 import diasporaLogo from "../assets/logos/diaspora.webp";
 import casaAngolaLogo from "../assets/logos/casa-de-angola-hub.png";
+import cnbLogo from "../assets/logos/cnb-networking-angola-brasil.png";
 
 // Para colocar o logo de uma organização: salve a imagem (sem fundo) em src/assets/logos,
 // importe aqui e passe em `logo`. Enquanto não houver logo, o card mostra o ícone em `icon`.
@@ -44,6 +45,15 @@ const orgs = [
     testid: "atuacao-diaspora",
     ctaTestid: "atuacao-diaspora-cta",
   },
+  {
+    icon: Network,
+    logo: cnbLogo,
+    logoAlt: "Logo CNB Networking Angola–Brasil — Conexões, Negócios e Intercâmbio",
+    name: "CNB Networking Angola–Brasil",
+    cargos: [],
+    text: "Conexões, negócios e intercâmbio entre Angola e Brasil.",
+    testid: "atuacao-cnb",
+  },
 ];
 
 export const Atuacao = () => (
@@ -56,7 +66,7 @@ export const Atuacao = () => (
         </h2>
       </Reveal>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {orgs.map((o, i) => (
           <Reveal key={o.name} delay={i * 0.12}>
             <article
@@ -71,7 +81,7 @@ export const Atuacao = () => (
                   <o.icon size={48} className="text-dourado" strokeWidth={1.5} />
                 )}
               </div>
-              <h3 className="relative font-serif text-2xl sm:text-3xl leading-snug">{o.name}</h3>
+              <h3 className="relative font-serif text-2xl sm:text-3xl leading-snug text-dourado">{o.name}</h3>
               <div className="relative flex flex-wrap gap-2 mt-5">
                 {o.cargos.map((c) => (
                   <span
@@ -89,7 +99,7 @@ export const Atuacao = () => (
                   <a href={waLink(WA_MSGS.reuniaoGestora)} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-2 rounded-full bg-dourado px-4 py-2.5 text-sm font-semibold text-roxo-deep hover:bg-perola transition-colors">Agendar reunião com a gestora <ArrowUpRight size={15}/></a>
                 </div>
               )}
-              <a
+              {o.href && <a
                 href={o.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -98,7 +108,7 @@ export const Atuacao = () => (
               >
                 {o.cta}
                 <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
+              </a>}
             </article>
           </Reveal>
         ))}
