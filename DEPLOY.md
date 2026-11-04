@@ -22,7 +22,7 @@ Suba esta pasta como repositório (o `.env` nunca vai junto).
 ## 4. Render
 - New > Web Service > conecte o repositório > Runtime: Docker (Dockerfile na raiz).
 - Plano Free. Em Environment, cadastre as variáveis de `backend/.env.example`.
-- Health check path: `/api/`
+- Health check path: `/api/health`
 - No Free o serviço "dorme" após ~15 min sem acesso; o primeiro acesso demora ~50 s.
 
 ## 5. Teste
@@ -40,3 +40,14 @@ Render > Settings > Custom Domains, e aponte o DNS (CNAME) como o Render indicar
 - frontend/package.json: removidos `@emergentbase/*`.
 - Contato.jsx e Admin.jsx: API na mesma origem.
 - Novos: Dockerfile, .dockerignore, backend/.env.example, DEPLOY.md.
+
+## Verificação final do formulário (obrigatória após publicar)
+1. Render > Environment: defina `MONGO_URL`, `DB_NAME`, `ADMIN_KEY` (chave forte de 32+ caracteres). Salve e reinicie/deploy novamente. **Nunca envie as credenciais por WhatsApp ou chat.**
+2. MongoDB Atlas: crie usuário de banco específico com permissão readWrite apenas em `cafe_katia`; configure Network Access conforme as opções de rede do serviço. Se optar por permitir todas as origens, use senha forte, privilégio mínimo e revise o acesso periodicamente.
+3. Abra `https://SEU-DOMINIO/api/health`. Deve retornar `{"status":"ok","database":"connected"}`. Se der 503, consulte os logs no Render.
+4. Envie um cadastro de TESTE pelo formulário Contato e outro pela Pré-inscrição. Só considere recebido quando aparecer no painel.
+5. Abra `https://SEU-DOMINIO/admin`, informe a `ADMIN_KEY` e confira os dois registros. A chave é enviada no cabeçalho `X-Admin-Key`, nunca na URL.
+6. Para receber notificações: configure `RESEND_API_KEY`, `OWNER_EMAIL` e `EMAIL_FROM` de domínio verificado no Resend. Sem isso, **o banco salva**, mas **não há notificação por e-mail**.
+7. Apague os registros de teste pelo MongoDB Atlas; mantenha backups e uma política de retenção de dados pessoais.
+
+**Aviso:** o ZIP prepara o código, mas não cria automaticamente um cluster MongoDB, uma conta Resend, nem modifica seu serviço Render sem acesso autorizado a essas plataformas.

@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter, HTTPException, Query
+from fastapi import FastAPI, APIRouter, HTTPException, Header, status
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from dotenv import load_dotenv
@@ -17,13 +17,19 @@ from pydantic import BaseModel, Field
 from typing import List
 import uuid
 from datetime import datetime, timezone
+from pymongo.errors import PyMongoError
+from secrets import compare_digest
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-mongo_url = os.environ['MONGO_URL']
-client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
+# A conexão real é configurada no Render > Environment (nunca no repositório).
+mongo_url = os.environ.get('MONGO_URL', '').strip()
+db_name = os.environ.get('DB_NAME', '').strip()
+if not mongo_url or not db_name:
+    raise RuntimeError('Configure MONGO_URL e DB_NAME no ambiente antes de iniciar o serviço.')
+client = AsyncIOMotorClient(mongo_url, serverSelectionTimeoutMS=8000)
+db = client[db_name]
 
 app = FastAPI()
 api_router = APIRouter(prefix="/api")
@@ -182,7 +188,11 @@ async def root():
 @api_router.post("/contacts", response_model=Contact)
 async def create_contact(input: ContactCreate):
     contact = Contact(**input.model_dump())
-    await db.contacts.insert_one(contact.model_dump())
+    try:
+        await db.contacts.insert_one(contact.model_dump())
+    except PyMongoError:
+        logger.exception("Falha ao gravar formulário no banco")
+        raise HTTPException(status_code=503, detail="Não foi possível registrar sua mensagem. Tente novamente.")
     try:
         email_id = await send_email(
             to=OWNER_EMAIL,
@@ -195,11 +205,29 @@ async def create_contact(input: ContactCreate):
     return contact
 
 
+@api_router.get("/health")
+async def health():
+    # Conexão real: serve como health check no Render. Não revela credenciais.
+    try:
+        await db.command("ping")
+    except PyMongoError:
+        raise HTTPException(status_code=503, detail="Banco de dados indisponível")
+    return {"status": "ok", "database": "connected"}
+
+
 @api_router.get("/contacts", response_model=List[Contact])
-async def list_contacts(key: str = Query(...)):
-    if key != os.environ.get("ADMIN_KEY"):
+async def list_contacts(x_admin_key: str = Header(default="")):
+    configured_key = os.environ.get("ADMIN_KEY", "")
+    if not configured_key or len(configured_key) < 16:
+        logger.error("ADMIN_KEY não configurada ou muito curta")
+        raise HTTPException(status_code=503, detail="Painel administrativo não configurado")
+    if not x_admin_key or not compare_digest(x_admin_key, configured_key):
         raise HTTPException(status_code=401, detail="Chave de acesso inválida")
-    return await db.contacts.find({}, {"_id": 0}).sort("created_at", -1).to_list(1000)
+    try:
+        return await db.contacts.find({}, {"_id": 0}).sort("created_at", -1).to_list(1000)
+    except PyMongoError:
+        logger.exception("Falha ao consultar mensagens")
+        raise HTTPException(status_code=503, detail="Banco de dados indisponível")
 
 
 app.include_router(api_router)
