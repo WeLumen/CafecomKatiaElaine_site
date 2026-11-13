@@ -22,7 +22,7 @@ module.exports = {
       colors: {
         background: 'hsl(var(--background))',
         roxo: { DEFAULT: '#5B2D4F', 2: '#734B63', deep: '#3D2739' },
-        dourado: { DEFAULT: '#FAC504', hover: '#B68839' },
+        dourado: { DEFAULT: '#FAC504', hover: '#B68839', ink: '#805A1D' },
         creme: '#F8F5EF',
         perola: '#FDFBFB',
         rosec: '#D3A8C9',

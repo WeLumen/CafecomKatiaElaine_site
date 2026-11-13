@@ -1,18 +1,17 @@
 import { useState } from "react";
-import axios from "axios";
+import { saveContact } from "../lib/contacts";
 import { toast } from "sonner";
 import { MapPin, Instagram, MessageCircle, Send, Loader2, Clock } from "lucide-react";
 import { Reveal, Eyebrow } from "./Reveal";
-import { waLink, WA_MSGS, INSTAGRAM_PODOLOGIA, INSTAGRAM_CAFE, HORARIO_ATENDIMENTO } from "../lib/site";
+import { waLink, WA_MSGS, INSTAGRAM_PODOLOGIA, INSTAGRAM_CAFE, HORARIO_ATENDIMENTO, ENDERECO_ATENDIMENTO } from "../lib/site";
 
-const API = `${process.env.REACT_APP_BACKEND_URL || ""}/api`;
 
 const perfis = ["Paciente / Atleta", "Podólogo(a) ou Estudante", "Parceria Esportiva ou Institucional"];
 const assuntos = [
   "Podologia Esportiva / Órteses",
   "Tratamento de Infecção / Onicocriptose",
   "Naturopatia",
-  "Mentoria Prática (6 meses)",
+  "Aperfeiçoamento Prático de Podologia Clínica",
   "Mentoria de Gestão",
   "Café com Katia Elaine / ABP / Casa de Angola Hub",
 ];
@@ -30,7 +29,7 @@ export const Contato = () => {
     e.preventDefault();
     setSending(true);
     try {
-      await axios.post(`${API}/contacts`, form);
+      await saveContact(form);
       toast.success("Mensagem enviada com sucesso! Katia retornará em breve.");
       setForm({ nome: "", telefone: "", perfil: "", assunto: "", mensagem: "" });
     } catch {
@@ -41,7 +40,7 @@ export const Contato = () => {
   };
 
   return (
-    <section id="contato" className="bg-creme py-24 sm:py-32">
+    <section id="contato" className="bg-creme py-16 sm:py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-14">
           <Reveal>
@@ -61,30 +60,30 @@ export const Contato = () => {
                 </span>
                 <div>
                   <span className="block text-sm font-semibold text-roxo">Local de Atendimento</span>
-                  <span className="block text-sm text-suave">São Paulo - SP · Bairro Brás</span>
+                  <span className="block text-sm text-suave">{ENDERECO_ATENDIMENTO || "Brás · São Paulo - SP"}</span>
+                  {!ENDERECO_ATENDIMENTO && <p className="mt-1 text-xs text-suave">Confirme o endereço exato antes de se deslocar.</p>}
+                  <a href={waLink("Olá, Katia! Gostaria de confirmar o endereço do consultório e os horários de atendimento.")} target="_blank" rel="noopener noreferrer" className="block mt-2 text-sm text-roxo underline underline-offset-4">Consultar endereço e horários</a>
                 </div>
               </div>
-              {HORARIO_ATENDIMENTO && (
                 <div className="flex items-start gap-4" data-testid="contato-horario">
                   <span className="w-11 h-11 rounded-xl bg-roxo text-dourado flex items-center justify-center shrink-0">
                     <Clock size={20} />
                   </span>
                   <div>
                     <span className="block text-sm font-semibold text-roxo">Horário de Atendimento</span>
-                    <span className="block text-sm text-suave">{HORARIO_ATENDIMENTO}</span>
+                    <span className="block text-sm text-suave">{HORARIO_ATENDIMENTO || "Consulte os horários disponíveis pelo WhatsApp."}</span>
                   </div>
                 </div>
-              )}
               <div className="flex items-start gap-4" data-testid="contato-redes">
                 <span className="w-11 h-11 rounded-xl bg-roxo text-dourado flex items-center justify-center shrink-0">
                   <Instagram size={20} />
                 </span>
                 <div>
                   <span className="block text-sm font-semibold text-roxo">Redes Sociais</span>
-                  <a href={INSTAGRAM_PODOLOGIA} target="_blank" rel="noopener noreferrer" data-testid="contato-instagram-podologia" className="block text-sm text-suave hover:text-dourado-hover transition-colors">
+                  <a href={INSTAGRAM_PODOLOGIA} target="_blank" rel="noopener noreferrer" data-testid="contato-instagram-podologia" className="block text-sm text-suave hover:text-dourado-ink transition-colors">
                     @akatiaelaine
                   </a>
-                  <a href={INSTAGRAM_CAFE} target="_blank" rel="noopener noreferrer" data-testid="contato-instagram-cafe" className="block text-sm text-suave hover:text-dourado-hover transition-colors">
+                  <a href={INSTAGRAM_CAFE} target="_blank" rel="noopener noreferrer" data-testid="contato-instagram-cafe" className="block text-sm text-suave hover:text-dourado-ink transition-colors">
                     @cafecomkatiaelaine
                   </a>
                 </div>
@@ -100,9 +99,9 @@ export const Contato = () => {
                 Chamar no WhatsApp agora
               </a>
               <iframe
-                title="Mapa — Brás, São Paulo - SP"
+                title={ENDERECO_ATENDIMENTO ? `Mapa — ${ENDERECO_ATENDIMENTO}` : "Mapa da região do Brás, São Paulo"}
                 data-testid="contato-mapa"
-                src="https://www.google.com/maps?q=Br%C3%A1s%2C%20S%C3%A3o%20Paulo%20-%20SP&output=embed"
+                src={`https://www.google.com/maps?q=${encodeURIComponent(ENDERECO_ATENDIMENTO || "Brás, São Paulo - SP")}&output=embed`}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="w-full h-56 rounded-3xl border border-borda"
@@ -119,11 +118,11 @@ export const Contato = () => {
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="campo-nome" className="block text-xs uppercase tracking-[0.16em] text-suave font-semibold mb-2">Nome</label>
-                  <input id="campo-nome" data-testid="contato-input-nome" required value={form.nome} onChange={set("nome")} placeholder="Seu nome completo" className={inputCls} />
+                  <input id="campo-nome" data-testid="contato-input-nome" required minLength={2} maxLength={120} autoComplete="name" value={form.nome} onChange={set("nome")} placeholder="Seu nome completo" className={inputCls} />
                 </div>
                 <div>
                   <label htmlFor="campo-telefone" className="block text-xs uppercase tracking-[0.16em] text-suave font-semibold mb-2">Telefone / WhatsApp</label>
-                  <input id="campo-telefone" data-testid="contato-input-telefone" required value={form.telefone} onChange={set("telefone")} placeholder="(11) 99999-0000" className={inputCls} />
+                  <input id="campo-telefone" data-testid="contato-input-telefone" type="tel" required minLength={8} maxLength={30} autoComplete="tel" value={form.telefone} onChange={set("telefone")} placeholder="(11) 99999-0000" className={inputCls} />
                 </div>
               </div>
               <div className="grid sm:grid-cols-2 gap-4 mt-4">
@@ -144,7 +143,7 @@ export const Contato = () => {
               </div>
               <div className="mt-4">
                 <label htmlFor="campo-mensagem" className="block text-xs uppercase tracking-[0.16em] text-suave font-semibold mb-2">Mensagem (opcional)</label>
-                <textarea id="campo-mensagem" data-testid="contato-textarea-mensagem" rows={4} value={form.mensagem} onChange={set("mensagem")} placeholder="Conte um pouco sobre o que você precisa..." className={`${inputCls} resize-none`} />
+                <textarea id="campo-mensagem" data-testid="contato-textarea-mensagem" rows={4} maxLength={2000} value={form.mensagem} onChange={set("mensagem")} placeholder="Conte um pouco sobre o que você precisa..." className={`${inputCls} resize-none`} />
               </div>
               <button
                 type="submit"

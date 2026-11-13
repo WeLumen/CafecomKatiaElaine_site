@@ -1,0 +1,93 @@
+[
+  {
+    "asset": "abp-claro.webp",
+    "before": 153664,
+    "after": 65112,
+    "width": 270,
+    "height": 360
+  },
+  {
+    "asset": "diaspora.webp",
+    "before": 102254,
+    "after": 40438,
+    "width": 360,
+    "height": 97
+  },
+  {
+    "asset": "casa-de-angola-hub.png",
+    "before": 164020,
+    "after": 55226,
+    "width": 246,
+    "height": 360
+  },
+  {
+    "asset": "cnb-networking-angola-brasil.png",
+    "before": 1527869,
+    "after": 73644,
+    "width": 360,
+    "height": 180
+  },
+  {
+    "asset": "logo-round.png",
+    "before": 2822935,
+    "after": 283512,
+    "width": 512,
+    "height": 512
+  },
+  {
+    "asset": "katia-cafe-recorte.png",
+    "before": 1602222,
+    "after": 90714,
+    "width": 771,
+    "height": 960
+  },
+  {
+    "asset": "mandala.webp",
+    "before": 1843128,
+    "after": 1062826,
+    "width": 896,
+    "height": 896
+  },
+  {
+    "asset": "centro.webp",
+    "before": 393444,
+    "after": 248442,
+    "width": 896,
+    "height": 896
+  },
+  {
+    "asset": "katia-recorte.webp",
+    "before": 259800,
+    "after": 108484,
+    "width": 540,
+    "height": 960
+  },
+  {
+    "asset": "podoterapia.webp",
+    "before": 77954,
+    "after": 26900,
+    "width": 360,
+    "height": 171
+  },
+  {
+    "asset": "pure-pilates.webp",
+    "before": 31818,
+    "after": 32170,
+    "width": 334,
+    "height": 201
+  },
+  {
+    "asset": "zion-gym.png",
+    "before": 424212,
+    "after": 20066,
+    "width": 480,
+    "height": 160
+  },
+  {
+    "asset": "wbpf-sao-paulo-sem-fundo.png",
+    "before": 1971049,
+    "after": 162032,
+    "width": 320,
+    "height": 320
+  }
+]

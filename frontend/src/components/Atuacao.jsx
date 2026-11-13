@@ -1,10 +1,10 @@
 import { Landmark, Globe, Network, ArrowUpRight } from "lucide-react";
 import { Reveal, Eyebrow } from "./Reveal";
 import { INSTAGRAM_ABP, INSTAGRAM_CASA_ANGOLA, INSTAGRAM_DIASPORA, waLink, WA_MSGS, WA_MENTORIAS_NUMBER, WA_ASSOCIACAO_NUMBER } from "../lib/site";
-import abpLogo from "../assets/logos/abp-claro.webp";
-import diasporaLogo from "../assets/logos/diaspora.webp";
-import casaAngolaLogo from "../assets/logos/casa-de-angola-hub.png";
-import cnbLogo from "../assets/logos/cnb-networking-angola-brasil.png";
+import abpLogo from "../assets/optimized/abp-claro.webp";
+import diasporaLogo from "../assets/optimized/diaspora.webp";
+import casaAngolaLogo from "../assets/optimized/casa-de-angola-hub.webp";
+import cnbLogo from "../assets/optimized/cnb-networking-angola-brasil.webp";
 
 // Para colocar o logo de uma organização: salve a imagem (sem fundo) em src/assets/logos,
 // importe aqui e passe em `logo`. Enquanto não houver logo, o card mostra o ícone em `icon`.
@@ -26,8 +26,10 @@ const orgs = [
     logoAlt: "Logo da Casa de Angola Hub — Centro de Intercâmbio Angola-Brasil",
     logoGlow: true,
     secondaryLogo: cnbLogo,
-    secondaryLogoAlt: "Logo CNB Networking Angola–Brasil — Conexões, Negócios e Intercâmbio",
+    secondaryLogoAlt: "Marca de networking Angola–Brasil — Conexões, Negócios e Intercâmbio",
     name: "Casa de Angola Hub",
+    networkName: "NAB — Networking Angola–Brasil",
+    networkText: "Conexões, negócios e intercâmbio entre Angola e Brasil, aproximando profissionais e oportunidades nos dois países.",
     cargos: ["Embaixadora da Casa de Angola Hub — Diáspora Business"],
     text: "Ponte comercial entre a podologia brasileira, a África e a diáspora internacional.",
     cta: "Acessar Casa de Angola Hub",
@@ -50,7 +52,7 @@ const orgs = [
 ];
 
 export const Atuacao = () => (
-  <section id="atuacao" className="bg-creme py-24 sm:py-32">
+  <section id="atuacao" className="bg-creme py-16 sm:py-24 lg:py-32">
     <div className="max-w-7xl mx-auto px-5 sm:px-8">
       <Reveal className="max-w-2xl mb-14">
         <Eyebrow>Atuação Institucional & Diretorias</Eyebrow>
@@ -67,12 +69,12 @@ export const Atuacao = () => (
               className="group relative h-full bg-roxo text-perola rounded-[2rem] p-8 sm:p-9 overflow-hidden flex flex-col hover:-translate-y-1.5 transition-transform duration-500"
             >
               <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-dourado/10 blur-2xl group-hover:bg-dourado/20 transition-colors duration-700" />
-              <div className="relative h-32 flex items-center gap-4 mb-6 min-w-0">
+              <div className="relative h-24 flex items-center gap-4 mb-6 min-w-0">
                 {o.logo ? (
                   <>
-                    <img src={o.logo} alt={o.logoAlt} className={`min-w-0 max-h-full object-contain object-left ${o.secondaryLogo ? "w-[46%]" : "max-w-full"} ${o.logoGlow ? "drop-shadow-[0_0_6px_rgba(253,251,251,0.9)]" : ""}`} loading="lazy" />
+                    <img src={o.logo} alt={o.logoAlt} className={`min-w-0 max-h-24 object-contain object-left ${o.secondaryLogo ? "w-[46%] max-w-[130px]" : "w-full max-w-[180px]"} ${o.logoGlow ? "drop-shadow-[0_0_6px_rgba(253,251,251,0.9)]" : ""}`} loading="lazy" />
                     {o.secondaryLogo && (
-                      <img src={o.secondaryLogo} alt={o.secondaryLogoAlt} className="w-[50%] min-w-0 max-h-full object-contain object-center" loading="lazy" />
+                      <img src={o.secondaryLogo} alt={o.secondaryLogoAlt} className="w-[46%] max-w-[130px] min-w-0 max-h-24 object-contain object-center" loading="lazy" />
                     )}
                   </>
                 ) : (
@@ -90,7 +92,15 @@ export const Atuacao = () => (
                   </span>
                 ))}
               </div>
-              <p className="relative mt-5 text-sm sm:text-base text-perola/70 leading-relaxed flex-1">{o.text}</p>
+              <div className="relative mt-5 flex-1">
+                <p className="text-sm sm:text-base text-perola/80 leading-relaxed">{o.text}</p>
+                {o.networkName && (
+                  <div className="mt-5 pt-5 border-t border-dourado/30">
+                    <h4 className="font-serif text-xl text-dourado leading-snug">{o.networkName}</h4>
+                    <p className="mt-2 text-sm text-perola/80 leading-relaxed">{o.networkText}</p>
+                  </div>
+                )}
+              </div>
               {o.name === "Diaspora Business" && (
                 <div className="relative mt-5 rounded-xl border border-dourado/30 bg-roxo-deep/30 px-4 py-4">
                   <p className="text-sm text-perola/80 leading-relaxed">Reuniões com a gestora às segundas e quintas-feiras, conforme agenda e demanda.</p>

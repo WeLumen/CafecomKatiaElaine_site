@@ -1,14 +1,15 @@
-import { useState } from "react";
-import axios from "axios";
+import { useRef, useState } from "react";
+import { saveContact } from "../lib/contacts";
 import { toast } from "sonner";
-import { GraduationCap, LineChart, Check, ArrowUpRight, X, Send, Loader2, Wallet } from "lucide-react";
+import { GraduationCap, LineChart, Check, ArrowUpRight, Send, Loader2, Wallet } from "lucide-react";
+import * as Dialog from "@radix-ui/react-dialog";
 import { Reveal, Eyebrow } from "./Reveal";
 import { waLink, WA_MSGS, WA_MENTORIAS_NUMBER } from "../lib/site";
 
 const programs = [
   {
     icon: GraduationCap,
-    name: "Aperfeiçoamento Prático de Podologia Clínica (Estágio)",
+    name: "Aperfeiçoamento Prático de Podologia Clínica",
     label: "Presencial · Prática às segundas-feiras",
     focus:
       "Imersão presencial com acompanhamento em casos clínicos reais, orientações sobre tratamentos e abordagens técnicas de referência internacional. Programa inicial de 6 meses, com possibilidade de continuidade conforme a carga horária necessária.",
@@ -35,10 +36,10 @@ const programs = [
   },
 ];
 
-const API = `${process.env.REACT_APP_BACKEND_URL || ""}/api`;
 const initialForm = { nome: "", telefone: "", email: "", perfil: "", pagamento: "", observacoes: "", concorda: false };
 
 export function PreInscricao({ onClose }) {
+  const returnFocus = useRef(document.activeElement);
   const [form, setForm] = useState(initialForm);
   const [sending, setSending] = useState(false);
   const change = (key) => (event) => setForm((prev) => ({ ...prev, [key]: event.target.type === "checkbox" ? event.target.checked : event.target.value }));
@@ -47,7 +48,7 @@ export function PreInscricao({ onClose }) {
     if (!form.concorda) return;
     setSending(true);
     try {
-      await axios.post(`${API}/contacts`, {
+      await saveContact({
         nome: form.nome.trim(), telefone: form.telefone.trim(), perfil: form.perfil,
         assunto: "Pré-inscrição — Aperfeiçoamento Prático de Podologia Clínica",
         mensagem: `E-mail: ${form.email || "Não informado"}\nModalidade de interesse: ${form.pagamento}\nObservações: ${form.observacoes || "Nenhuma"}\nOrigem: formulário de pré-inscrição no site.`,
@@ -60,12 +61,14 @@ export function PreInscricao({ onClose }) {
   };
   const field = "w-full rounded-xl border border-borda bg-white px-4 py-3 text-sm text-tinta focus:outline-none focus:border-dourado focus:ring-2 focus:ring-dourado/20";
   return (
-    <div className="fixed inset-0 z-[100] bg-roxo-deep/70 p-4 flex items-center justify-center" onMouseDown={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div role="dialog" aria-modal="true" aria-labelledby="preinscricao-titulo" className="relative bg-perola rounded-[2rem] w-full max-w-xl max-h-[92vh] overflow-y-auto p-6 sm:p-9 shadow-2xl">
-        <button type="button" onClick={onClose} aria-label="Fechar formulário" className="absolute top-5 right-5 text-roxo p-2 rounded-full hover:bg-creme"><X size={22}/></button>
-        <p className="text-xs uppercase tracking-[0.15em] text-dourado-hover font-semibold">Aperfeiçoamento Prático de Podologia Clínica</p>
-        <h3 id="preinscricao-titulo" className="font-serif text-3xl text-roxo mt-3 pr-8">Pré-inscrição</h3>
-        <p className="text-sm text-suave mt-2 mb-6">Preencha seus dados para receber as orientações e confirmar a disponibilidade da próxima turma. O envio não garante a vaga nem gera cobrança.</p>
+    <Dialog.Root open onOpenChange={(open) => { if (!open) onClose(); }}>
+      <Dialog.Portal>
+        <Dialog.Overlay className="fixed inset-0 z-[100] bg-roxo-deep/70" />
+      <Dialog.Content data-lenis-prevent onCloseAutoFocus={(event) => { event.preventDefault(); returnFocus.current?.focus(); }} className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[101] bg-perola rounded-[2rem] w-[calc(100%_-_2rem)] max-w-xl max-h-[92dvh] overflow-y-auto p-6 sm:p-9 shadow-2xl">
+        <Dialog.Close aria-label="Fechar formulário" className="absolute top-4 right-4 text-roxo px-3 py-2 rounded-full hover:bg-creme">Fechar</Dialog.Close>
+        <p className="text-xs uppercase tracking-[0.15em] text-dourado-ink font-semibold pr-20">Aperfeiçoamento Prático de Podologia Clínica</p>
+        <Dialog.Title className="font-serif text-3xl text-roxo mt-3 pr-8">Pré-inscrição</Dialog.Title>
+        <Dialog.Description className="text-sm text-suave mt-2 mb-6">Preencha seus dados para receber as orientações e confirmar a disponibilidade da próxima turma. O envio não garante a vaga nem gera cobrança.</Dialog.Description>
         <form onSubmit={submit} className="space-y-4" data-testid="preinscricao-form">
           <div><label htmlFor="pre-nome" className="text-sm font-semibold text-roxo">Nome completo *</label><input id="pre-nome" required minLength={2} maxLength={120} value={form.nome} onChange={change("nome")} className={field} autoComplete="name" /></div>
           <div className="grid sm:grid-cols-2 gap-4">
@@ -78,17 +81,19 @@ export function PreInscricao({ onClose }) {
           <label className="flex items-start gap-3 text-xs text-suave leading-relaxed"><input type="checkbox" required checked={form.concorda} onChange={change("concorda")} className="mt-1 accent-roxo"/><span>Autorizo o uso dos meus dados para contato sobre esta pré-inscrição, conforme a LGPD. *</span></label>
           <button disabled={sending} type="submit" className="w-full rounded-full py-3.5 px-5 bg-roxo text-perola font-semibold flex items-center justify-center gap-2 hover:bg-dourado hover:text-roxo-deep disabled:opacity-60">{sending ? <Loader2 size={18} className="animate-spin" /> : <Send size={18}/>} {sending ? "Enviando..." : "Enviar pré-inscrição"}</button>
         </form>
-      </div>
-    </div>
+        <a href={waLink("Olá, Katia! Tenho interesse no Aperfeiçoamento Prático de Podologia Clínica. Gostaria de confirmar calendário, carga horária e condições de pagamento.", WA_MENTORIAS_NUMBER)} target="_blank" rel="noopener noreferrer" className="block mt-4 text-center text-sm text-roxo underline underline-offset-4">Prefere conversar? Fale com a equipe no WhatsApp</a>
+      </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 }
 
 export const Mentorias = () => {
   return (
-  <section id="mentorias" className="bg-creme py-24 sm:py-32">
+  <section id="mentorias" className="bg-creme py-16 sm:py-24 lg:py-32">
     <div className="max-w-7xl mx-auto px-5 sm:px-8">
       <Reveal className="max-w-2xl mb-14">
-        <Eyebrow>Mentorias para Podólogos & Podologistas</Eyebrow>
+        <Eyebrow>Formação & Mentorias</Eyebrow>
         <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-roxo mt-4 leading-tight tracking-tight">
           Capacitação prática e estratégica para elevar seu nível técnico e financeiro
         </h2>
@@ -105,7 +110,7 @@ export const Mentorias = () => {
                 <div className="w-14 h-14 rounded-2xl bg-roxo text-dourado flex items-center justify-center group-hover:bg-dourado group-hover:text-roxo-deep transition-colors duration-500">
                   <p.icon size={26} strokeWidth={1.75} />
                 </div>
-                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-dourado-hover bg-creme border border-borda rounded-full px-3.5 py-1.5 text-right">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-dourado-ink bg-creme border border-borda rounded-full px-3.5 py-1.5 text-right">
                   {p.label}
                 </span>
               </div>
@@ -114,7 +119,7 @@ export const Mentorias = () => {
               <ul className="mt-6 space-y-3 flex-1">
                 {p.items.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-tinta">
-                    <span className="w-5 h-5 rounded-full bg-dourado/15 text-dourado-hover flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="w-5 h-5 rounded-full bg-dourado/15 text-dourado-ink flex items-center justify-center shrink-0 mt-0.5">
                       <Check size={12} strokeWidth={3} />
                     </span>
                     {item}
@@ -141,6 +146,15 @@ export const Mentorias = () => {
           </Reveal>
         ))}
       </div>
+      <Reveal className="mt-8">
+        <article data-testid="mentoria-podologia-lucro" className="relative overflow-hidden rounded-[2rem] bg-roxo p-8 text-perola sm:p-12">
+          <div aria-hidden="true" className="absolute -right-20 -top-32 h-80 w-80 rounded-full border border-dourado/25" />
+          <div className="relative grid gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
+            <div><Eyebrow dark>Método C.A.F.É.</Eyebrow><h3 className="mt-5 font-serif text-3xl sm:text-5xl">Podologia com <span className="text-dourado">Lucro</span></h3><p className="mt-5 max-w-2xl text-base leading-relaxed text-perola/80">Consultório cheio e caixa vazio? Aprenda a organizar suas contas, identificar desperdícios, precificar procedimentos e planejar o uso do seu lucro.</p><p className="mt-4 text-sm text-perola/80">100% online · 8 semanas de acompanhamento · 1 ano de acesso</p></div>
+            <div><a href="/podologia-com-lucro" className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-dourado px-6 py-4 font-semibold text-roxo-deep hover:bg-perola transition-colors">Conhecer a mentoria <ArrowUpRight size={18} /></a><p className="mt-4 text-center text-xs leading-relaxed text-perola/80">Veja o programa completo e a condição especial do Grupo VIP Fundador.</p></div>
+          </div>
+        </article>
+      </Reveal>
     </div>
   </section>
   );

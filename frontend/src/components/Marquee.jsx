@@ -3,7 +3,7 @@ const items = [
   "Podologia Esportiva WBPF",
   "Naturopatia Integrativa",
   "Gestão de Clínicas",
-  "Mentoria Hands-On",
+  "Aperfeiçoamento Clínico",
   "Café com Katia Elaine",
   "ABP - Associação Brasileira de Podólogos",
   "Mastermind Podológico",

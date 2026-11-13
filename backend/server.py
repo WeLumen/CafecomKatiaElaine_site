@@ -3,7 +3,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
-from motor.motor_asyncio import AsyncIOMotorClient
+from contact_store import ContactStore, StorageError
 import os
 import re
 import ipaddress
@@ -17,19 +17,13 @@ from pydantic import BaseModel, Field
 from typing import List
 import uuid
 from datetime import datetime, timezone
-from pymongo.errors import PyMongoError
 from secrets import compare_digest
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-# A conexão real é configurada no Render > Environment (nunca no repositório).
-mongo_url = os.environ.get('MONGO_URL', '').strip()
-db_name = os.environ.get('DB_NAME', '').strip()
-if not mongo_url or not db_name:
-    raise RuntimeError('Configure MONGO_URL e DB_NAME no ambiente antes de iniciar o serviço.')
-client = AsyncIOMotorClient(mongo_url, serverSelectionTimeoutMS=8000)
-db = client[db_name]
+# MongoDB continua sendo o padrão para publicação; SQLite exige configuração explícita.
+store = ContactStore(os.environ, ROOT_DIR)
 
 app = FastAPI()
 api_router = APIRouter(prefix="/api")
@@ -189,8 +183,8 @@ async def root():
 async def create_contact(input: ContactCreate):
     contact = Contact(**input.model_dump())
     try:
-        await db.contacts.insert_one(contact.model_dump())
-    except PyMongoError:
+        await store.insert(contact.model_dump())
+    except StorageError:
         logger.exception("Falha ao gravar formulário no banco")
         raise HTTPException(status_code=503, detail="Não foi possível registrar sua mensagem. Tente novamente.")
     try:
@@ -199,7 +193,8 @@ async def create_contact(input: ContactCreate):
             subject=f"Novo contato pelo site · {contact.assunto}",
             html=_contact_email_html(contact),
         )
-        logger.info(f"Email de notificação enviado: {email_id}")
+        if email_id:
+            logger.info("E-mail de notificação enviado")
     except Exception as e:
         logger.warning(f"Falha ao enviar email de notificação (contato salvo): {e}")
     return contact
@@ -209,10 +204,10 @@ async def create_contact(input: ContactCreate):
 async def health():
     # Conexão real: serve como health check no Render. Não revela credenciais.
     try:
-        await db.command("ping")
-    except PyMongoError:
+        await store.ping()
+    except StorageError:
         raise HTTPException(status_code=503, detail="Banco de dados indisponível")
-    return {"status": "ok", "database": "connected"}
+    return {"status": "ok", "database": "connected", "storage": store.kind}
 
 
 @api_router.get("/contacts", response_model=List[Contact])
@@ -224,8 +219,8 @@ async def list_contacts(x_admin_key: str = Header(default="")):
     if not x_admin_key or not compare_digest(x_admin_key, configured_key):
         raise HTTPException(status_code=401, detail="Chave de acesso inválida")
     try:
-        return await db.contacts.find({}, {"_id": 0}).sort("created_at", -1).to_list(1000)
-    except PyMongoError:
+        return await store.list()
+    except StorageError:
         logger.exception("Falha ao consultar mensagens")
         raise HTTPException(status_code=503, detail="Banco de dados indisponível")
 
@@ -259,4 +254,4 @@ if STATIC_DIR.exists():
 
 @app.on_event("shutdown")
 async def shutdown_db_client():
-    client.close()
+    store.close()

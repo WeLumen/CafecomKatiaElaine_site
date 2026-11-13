@@ -1,11 +1,9 @@
-import { Coffee, Mic, Users, CalendarDays, ArrowUpRight, MessagesSquare, Radio } from "lucide-react";
+import { Coffee, Mic, Users, CalendarDays, ArrowUpRight, MessagesSquare, Radio, Sparkles } from "lucide-react";
 import { Reveal, Eyebrow } from "./Reveal";
-import { waLink, WA_MSGS, WA_CAFE_NUMBER } from "../lib/site";
-import logo from "../assets/logo-round.png";
-import katiaCafeClinica from "../assets/katia-cafe-clinica.png";
-import { KatiaCirculo } from "./KatiaCirculo";
+import logo from "../assets/optimized/logo-round.webp";
+import katiaCafeRecorte from "../assets/optimized/katia-cafe-recorte.webp";
 
-const mastermindLinks = {
+const communityLinks = {
   canal: process.env.REACT_APP_MASTERMIND_CANAL_URL || "https://whatsapp.com/channel/0029Vae1xNzH5JM1jlwjs423",
   grupo: process.env.REACT_APP_MASTERMIND_GRUPO_URL || "https://chat.whatsapp.com/JnVCYmInwsq8UBlworURvH",
 };
@@ -20,7 +18,6 @@ const formats = [
     icon: MessagesSquare,
     title: "Mastermind Podológico — Conecte-se e Cresça",
     text: "Encontros presenciais mensais na região de São Paulo, exclusivos para podólogos trocarem experiências, estratégias e conhecimentos práticos.",
-    mastermind: true,
   },
   {
     icon: Mic,
@@ -31,11 +28,12 @@ const formats = [
     icon: Users,
     title: "Apoio & Redes de Conexão",
     text: "Espaço contínuo de suporte, dúvidas e parcerias entre os membros da comunidade.",
+    community: true,
   },
 ];
 
 export const Cafe = () => (
-  <section id="cafe" className="bg-roxo py-24 sm:py-32 relative overflow-hidden">
+  <section id="cafe" className="bg-roxo py-16 sm:py-24 lg:py-32 relative overflow-hidden">
     <div className="absolute -bottom-48 -left-48 w-[560px] h-[560px] rounded-full bg-dourado/10 blur-3xl pointer-events-none" />
     <img
       src={logo}
@@ -51,7 +49,7 @@ export const Cafe = () => (
             O <span className="font-script text-dourado text-4xl sm:text-5xl lg:text-6xl align-middle">café</span> com
             Katia Elaine
           </h2>
-          <p className="mt-6 text-base sm:text-lg text-perola/70 leading-relaxed">
+          <p className="mt-6 text-base sm:text-lg text-perola/80 leading-relaxed">
             Um movimento idealizado por Katia Elaine para conectar podólogos, estudantes,
             especialistas e fornecedores do setor — promovendo troca de conhecimentos, aprendizado
             contínuo e parcerias estratégicas que fortalecem toda a comunidade da podologia.
@@ -69,12 +67,12 @@ export const Cafe = () => (
                   </div>
                   <div>
                     <h3 className="font-serif text-lg text-perola">{f.title}</h3>
-                    <p className="mt-1 text-sm text-perola/60 leading-relaxed">{f.text}</p>
-                    {f.mastermind && (
+                    <p className="mt-1 text-sm text-perola/80 leading-relaxed">{f.text}</p>
+                    {f.community && (
                       <div className="mt-4 flex flex-col sm:flex-row gap-2">
                         {[
-                          { label: "Acessar canal", icon: Radio, url: mastermindLinks.canal },
-                          { label: "Entrar no grupo", icon: Users, url: mastermindLinks.grupo },
+                          { label: "Acessar canal", icon: Radio, url: communityLinks.canal },
+                          { label: "Entrar no grupo", icon: Users, url: communityLinks.grupo },
                         ].map((action) => (
                           action.url ? (
                             <a
@@ -106,7 +104,7 @@ export const Cafe = () => (
           </div>
 
           <a
-            href={waLink(WA_MSGS.cafe, WA_CAFE_NUMBER)}
+            href="https://evento.cafecomkatiaelaine.org/"
             target="_blank"
             rel="noopener noreferrer"
             data-testid="cafe-cta-participar"
@@ -119,13 +117,25 @@ export const Cafe = () => (
         </Reveal>
 
         <Reveal delay={0.2}>
-          <div className="relative max-w-sm mx-auto my-10">
-            <KatiaCirculo
-              alt="Katia Elaine, idealizadora do Café com Katia Elaine"
-              testid="cafe-image"
-              fotoAlternativa={katiaCafeClinica}
+          <figure className="relative isolate w-full max-w-[480px] mx-auto mt-8 lg:mt-0">
+            <div aria-hidden="true" className="absolute inset-x-[4%] top-[12%] aspect-square rounded-full bg-gradient-to-br from-dourado/20 via-rosec/10 to-transparent blur-2xl" />
+            <div aria-hidden="true" className="absolute inset-x-[2%] top-[12%] aspect-square rounded-full border border-dourado/30" />
+            <div aria-hidden="true" className="absolute inset-x-[8%] top-[17%] aspect-square rounded-full border border-dourado/60" />
+            <Sparkles aria-hidden="true" size={28} strokeWidth={1.2} className="absolute right-[3%] top-[15%] text-dourado" />
+            <img
+              src={katiaCafeRecorte}
+              alt="Katia Elaine de traje vinho, apoiada em uma poltrona, idealizadora do Café com Katia Elaine"
+              data-testid="cafe-image"
+              width={1124}
+              height={1399}
+              loading="lazy"
+              className="relative z-10 block w-full h-auto drop-shadow-[0_22px_28px_rgba(20,8,18,0.35)]"
             />
-          </div>
+            <figcaption className="relative z-20 mx-auto -mt-2 w-fit rounded-full border border-dourado/30 bg-roxo-deep/80 px-6 py-3 text-center backdrop-blur-md">
+              <span className="block font-serif text-xl text-perola">Katia Elaine</span>
+              <span className="block mt-1 text-[10px] uppercase tracking-[0.2em] text-dourado">Conexões, conhecimento e comunidade</span>
+            </figcaption>
+          </figure>
         </Reveal>
       </div>
     </div>

@@ -6,9 +6,11 @@ import { Toaster } from "sonner";
 import Home from "@/pages/Home";
 import Admin from "@/pages/Admin";
 import Aperfeicoamento from "@/pages/Aperfeicoamento";
+import PodologiaComLucro from "@/pages/PodologiaComLucro";
 
 function App() {
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const lenis = new Lenis({ lerp: 0.09, anchors: true });
     let rafId;
     const raf = (time) => {
@@ -28,6 +30,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/aperfeicoamento-podologia" element={<Aperfeicoamento />} />
+          <Route path="/podologia-com-lucro" element={<PodologiaComLucro />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>
       </BrowserRouter>

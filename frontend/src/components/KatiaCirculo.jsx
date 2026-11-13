@@ -1,4 +1,4 @@
-import katiaRecorte from "../assets/katia-recorte.webp";
+import katiaRecorte from "../assets/optimized/katia-recorte.webp";
 
 const Sparkle = ({ className = "", size = 22 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden className={`absolute text-dourado ${className}`}>

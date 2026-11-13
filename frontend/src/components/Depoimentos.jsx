@@ -17,7 +17,7 @@ const quotes = [
 ];
 
 export const Depoimentos = () => (
-  <section id="depoimentos" className="bg-perola py-24 sm:py-32">
+  <section id="depoimentos" className="bg-perola py-16 sm:py-24 lg:py-32">
     <div className="max-w-5xl mx-auto px-5 sm:px-8">
       <Reveal className="text-center max-w-2xl mx-auto mb-14">
         <Eyebrow>Depoimentos & Casos de Sucesso</Eyebrow>

@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, CalendarCheck } from "lucide-react";
-import logo from "../assets/logo-round.png";
+import logo from "../assets/optimized/logo-round.webp";
 import { waLink, WA_MSGS } from "../lib/site";
 
 const links = [
   ["Sobre", "#sobre"],
   ["Atuação", "#atuacao"],
   ["Serviços", "#servicos"],
-  ["Mentorias", "#mentorias"],
+  ["Formação", "#mentorias"],
   ["Café", "#cafe"],
   ["Contato", "#contato"],
 ];
@@ -16,6 +16,17 @@ const links = [
 export const Nav = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    if (!open) return;
+    const close = (event) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        document.querySelector('[data-testid="nav-mobile-toggle"]')?.focus();
+      }
+    };
+    document.addEventListener("keydown", close);
+    return () => document.removeEventListener("keydown", close);
+  }, [open]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -41,7 +52,7 @@ export const Nav = () => {
           />
           <div className="leading-tight">
             <span className="font-serif text-lg font-semibold text-roxo block">Katia Elaine</span>
-            <span className="text-[10px] uppercase tracking-[0.22em] text-dourado-hover">Podologia & Mentoria</span>
+            <span className="text-[10px] uppercase tracking-[0.22em] text-dourado-ink">Podologia & Mentoria</span>
           </div>
         </a>
 
@@ -71,8 +82,8 @@ export const Nav = () => {
         <button
           data-testid="nav-mobile-toggle"
           onClick={() => setOpen(!open)}
-          className="lg:hidden p-2 text-roxo"
-          aria-label="Abrir menu"
+          className="lg:hidden flex h-11 w-11 shrink-0 items-center justify-center text-roxo"
+          aria-label={open ? "Fechar menu" : "Abrir menu"} aria-expanded={open} aria-controls="menu-mobile"
         >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -85,16 +96,16 @@ export const Nav = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:hidden bg-perola/95 backdrop-blur-xl border-b border-borda overflow-hidden"
+            id="menu-mobile" aria-label="Navegação principal" className="lg:hidden bg-perola/95 backdrop-blur-xl border-b border-borda overflow-hidden"
           >
-            <div className="px-6 py-5 flex flex-col gap-4">
+            <div data-lenis-prevent className="max-h-[calc(100dvh_-_72px)] overflow-y-auto px-6 py-4 flex flex-col gap-1">
               {links.map(([label, href]) => (
                 <a
                   key={href}
                   href={href}
                   data-testid={`nav-mobile-link-${href.slice(1)}`}
                   onClick={() => setOpen(false)}
-                  className="text-base text-tinta font-medium"
+                  className="flex min-h-11 items-center text-base text-tinta font-medium"
                 >
                   {label}
                 </a>

@@ -20,8 +20,12 @@ export const WA_MSGS = {
   reuniaoGestora: "Olá! Gostaria de agendar uma reunião com a gestora da Diáspora Business. Sei que os atendimentos ocorrem às segundas e quintas-feiras, conforme agenda e demanda. Poderia me informar a disponibilidade?",
 };
 
-// Preencha com o horário real de atendimento (ex.: "Seg a Sex · 9h às 18h"). Se ficar vazio, não aparece no site.
-export const HORARIO_ATENDIMENTO = "";
+// Dados confirmados: enquanto vazios, o site orienta a consultar a equipe.
+// Exemplo de horário: "Seg a Sex · 9h às 18h". Preencha datas de início com texto legível.
+export const HORARIO_ATENDIMENTO = "Segunda a sexta, das 9h às 19h · Sábado, das 9h às 13h";
+export const ENDERECO_ATENDIMENTO = "Rua Piratininga, 615 — Brás, São Paulo - SP · CEP 03041-010";
+export const INICIO_APERFEICOAMENTO = "";
+export const INICIO_PODOLOGIA_LUCRO = "";
 
 export const INSTAGRAM_PODOLOGIA = "https://www.instagram.com/akatiaelaine/";
 export const INSTAGRAM_CAFE = "https://www.instagram.com/cafecomkatiaelaine/";

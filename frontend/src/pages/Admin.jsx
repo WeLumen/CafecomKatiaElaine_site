@@ -1,10 +1,9 @@
 import { useState } from "react";
-import axios from "axios";
+import { listContacts } from "../lib/contacts";
 import { toast } from "sonner";
 import { Lock, RefreshCw, Inbox } from "lucide-react";
-import logo from "../assets/logo-round.png";
+import logo from "../assets/optimized/logo-round.webp";
 
-const API = `${process.env.REACT_APP_BACKEND_URL || ""}/api`;
 
 export default function Admin() {
   const [key, setKey] = useState(sessionStorage.getItem("admin_key") || "");
@@ -14,7 +13,7 @@ export default function Admin() {
   const load = async (k) => {
     setLoading(true);
     try {
-      const { data } = await axios.get(`${API}/contacts`, { headers: { "X-Admin-Key": k } });
+      const data = await listContacts(k);
       setContacts(data);
       sessionStorage.setItem("admin_key", k);
     } catch (error) {
@@ -40,12 +39,12 @@ export default function Admin() {
           <form
             onSubmit={(e) => { e.preventDefault(); load(key); }}
             data-testid="admin-key-form"
-            className="bg-perola border border-borda rounded-3xl p-8 max-w-md"
+            className="bg-perola border border-borda rounded-3xl p-5 sm:p-8 max-w-md"
           >
             <label htmlFor="admin-key" className="block text-xs uppercase tracking-[0.16em] text-suave font-semibold mb-2">
               Chave de acesso
             </label>
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <input
                 id="admin-key"
                 data-testid="admin-key-input"
@@ -54,13 +53,13 @@ export default function Admin() {
                 value={key}
                 onChange={(e) => setKey(e.target.value)}
                 placeholder="Digite a chave"
-                className="flex-1 bg-creme border border-borda rounded-2xl px-5 py-3 text-sm focus:outline-none focus:border-dourado"
+                className="min-w-0 w-full flex-1 bg-creme border border-borda rounded-2xl px-5 py-3 text-base focus:outline-none focus:border-dourado"
               />
               <button
                 type="submit"
                 disabled={loading}
                 data-testid="admin-key-submit"
-                className="inline-flex items-center gap-2 bg-roxo text-perola text-sm font-medium px-6 py-3 rounded-2xl hover:bg-dourado transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-roxo text-perola text-sm font-medium px-6 py-3 rounded-2xl hover:bg-dourado transition-colors"
               >
                 <Lock size={15} />
                 Entrar
@@ -90,7 +89,7 @@ export default function Admin() {
             ) : (
               <div className="space-y-4">
                 {contacts.map((c) => (
-                  <article key={c.id} data-testid={`admin-contact-${c.id}`} className="bg-perola border border-borda rounded-3xl p-6">
+                  <article key={c.id} data-testid={`admin-contact-${c.id}`} className="min-w-0 break-words bg-perola border border-borda rounded-3xl p-6">
                     <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                       <div>
                         <span className="font-serif text-xl text-roxo">{c.nome}</span>
@@ -104,7 +103,7 @@ export default function Admin() {
                       <span className="text-[11px] uppercase tracking-[0.12em] bg-creme border border-borda rounded-full px-3 py-1 text-tinta">{c.perfil}</span>
                       <span className="text-[11px] uppercase tracking-[0.12em] bg-roxo text-perola rounded-full px-3 py-1">{c.assunto}</span>
                     </div>
-                    {c.mensagem && <p className="text-sm text-suave leading-relaxed">{c.mensagem}</p>}
+                    {c.mensagem && <p className="text-sm text-suave leading-relaxed whitespace-pre-line">{c.mensagem}</p>}
                   </article>
                 ))}
               </div>

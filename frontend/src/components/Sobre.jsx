@@ -9,7 +9,7 @@ const pillars = [
   },
   {
     icon: HandHeart,
-    title: "Mentoria Prática (Hands-On)",
+    title: "Aperfeiçoamento Prático de Podologia Clínica",
     text: "Treinamento completo com base em tudo o que o podólogo precisa saber para se destacar com excelência no mercado.",
   },
   {
@@ -27,7 +27,7 @@ const pillars = [
 import { KatiaCirculo } from "./KatiaCirculo";
 
 export const Sobre = () => (
-  <section id="sobre" className="bg-perola py-24 sm:py-32 overflow-hidden">
+  <section id="sobre" className="bg-perola py-16 sm:py-24 lg:py-32 overflow-hidden">
     <div className="max-w-7xl mx-auto px-5 sm:px-8">
       <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center mb-20">
         <Reveal>
@@ -36,7 +36,7 @@ export const Sobre = () => (
               alt="Katia Elaine, podologista e CEO do Café com Katia Elaine"
               testid="sobre-image"
             />
-            <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap font-script text-3xl sm:text-4xl text-dourado-hover bg-perola/95 px-5 py-2 rounded-2xl shadow-lg rotate-[-2deg]">
+            <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap font-script text-3xl sm:text-4xl text-dourado-ink bg-perola/95 px-5 py-2 rounded-2xl shadow-lg rotate-[-2deg]">
               Katia Elaine
             </span>
           </div>

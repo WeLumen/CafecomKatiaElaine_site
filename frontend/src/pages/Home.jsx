@@ -6,24 +6,25 @@ import { Atuacao } from "../components/Atuacao";
 import { Servicos } from "../components/Servicos";
 import { Mentorias } from "../components/Mentorias";
 import { Cafe } from "../components/Cafe";
-import { Depoimentos } from "../components/Depoimentos";
 import { Contato } from "../components/Contato";
+import { EmpresasParceiras } from "../components/EmpresasParceiras";
 import { Footer } from "../components/Footer";
 import { FloatingWhatsApp } from "../components/FloatingWhatsApp";
 
 export default function Home() {
   return (
     <main data-testid="home-page">
+      <a href="#hero" className="skip-link">Pular para o conteúdo</a>
       <Nav />
       <Hero />
       <Marquee />
       <Sobre />
-      <Atuacao />
       <Servicos />
       <Mentorias />
       <Cafe />
-      <Depoimentos />
+      <Atuacao />
       <Contato />
+      <EmpresasParceiras />
       <Footer />
       <FloatingWhatsApp />
     </main>

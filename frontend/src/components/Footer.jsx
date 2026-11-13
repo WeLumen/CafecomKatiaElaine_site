@@ -1,14 +1,15 @@
 import { Instagram, MapPin } from "lucide-react";
-import logo from "../assets/logo-round.png";
-import { INSTAGRAM_PODOLOGIA, INSTAGRAM_CAFE } from "../lib/site";
+import logo from "../assets/optimized/logo-round.webp";
+import { INSTAGRAM_PODOLOGIA, INSTAGRAM_CAFE, ENDERECO_ATENDIMENTO, HORARIO_ATENDIMENTO } from "../lib/site";
 
 const links = [
   ["Sobre", "#sobre"],
   ["Atuação", "#atuacao"],
   ["Serviços", "#servicos"],
-  ["Mentorias", "#mentorias"],
+  ["Formação", "#mentorias"],
   ["Café", "#cafe"],
   ["Contato", "#contato"],
+  ["Empresas parceiras", "#empresas-parceiras"],
 ];
 
 export const Footer = () => (
@@ -24,7 +25,7 @@ export const Footer = () => (
               <span className="font-script text-dourado text-lg">café & podologia</span>
             </div>
           </div>
-          <p className="text-sm text-perola/60 leading-relaxed">
+          <p className="text-sm text-perola/80 leading-relaxed">
             Podologia clínica e esportiva, naturopatia, mentorias profissionais e a comunidade Café
             com Katia Elaine. São Paulo para o mundo.
           </p>
@@ -33,7 +34,7 @@ export const Footer = () => (
         <nav className="flex flex-col gap-2.5">
           <span className="text-[11px] uppercase tracking-[0.25em] text-dourado font-semibold mb-1">Navegação</span>
           {links.map(([label, href]) => (
-            <a key={href} href={`/${href}`} data-testid={`footer-link-${href.slice(1)}`} className="text-sm text-perola/60 hover:text-dourado transition-colors">
+            <a key={href} href={`/${href}`} data-testid={`footer-link-${href.slice(1)}`} className="text-sm text-perola/80 hover:text-dourado transition-colors">
               {label}
             </a>
           ))}
@@ -41,18 +42,19 @@ export const Footer = () => (
 
         <div className="flex flex-col gap-2.5">
           <span className="text-[11px] uppercase tracking-[0.25em] text-dourado font-semibold mb-1">Contato</span>
-          <span className="inline-flex items-center gap-2 text-sm text-perola/60">
-            <MapPin size={15} className="text-dourado" /> Brás · São Paulo - SP
+          <span className="inline-flex items-center gap-2 text-sm text-perola/80">
+            <MapPin size={15} className="text-dourado shrink-0" /> <span className="max-w-xs">{ENDERECO_ATENDIMENTO || "Brás · São Paulo - SP"}</span>
           </span>
-          <a href={INSTAGRAM_PODOLOGIA} target="_blank" rel="noopener noreferrer" data-testid="footer-instagram-podologia" className="inline-flex items-center gap-2 text-sm text-perola/60 hover:text-dourado transition-colors">
+          {HORARIO_ATENDIMENTO && <span className="max-w-xs text-sm leading-relaxed text-perola/80">{HORARIO_ATENDIMENTO}</span>}
+          <a href={INSTAGRAM_PODOLOGIA} target="_blank" rel="noopener noreferrer" data-testid="footer-instagram-podologia" className="inline-flex items-center gap-2 text-sm text-perola/80 hover:text-dourado transition-colors">
             <Instagram size={15} className="text-dourado" /> @akatiaelaine
           </a>
-          <a href={INSTAGRAM_CAFE} target="_blank" rel="noopener noreferrer" data-testid="footer-instagram-cafe" className="inline-flex items-center gap-2 text-sm text-perola/60 hover:text-dourado transition-colors">
+          <a href={INSTAGRAM_CAFE} target="_blank" rel="noopener noreferrer" data-testid="footer-instagram-cafe" className="inline-flex items-center gap-2 text-sm text-perola/80 hover:text-dourado transition-colors">
             <Instagram size={15} className="text-dourado" /> @cafecomkatiaelaine
           </a>
         </div>
       </div>
-      <p className="pt-7 text-center text-xs text-perola/40">
+      <p className="pt-7 text-center text-xs text-perola/70">
         © {new Date().getFullYear()} Katia Elaine · Café com Katia Elaine. Todos os direitos reservados.
       </p>
     </div>

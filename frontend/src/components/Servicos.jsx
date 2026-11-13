@@ -1,11 +1,12 @@
-import { Trophy, Dumbbell, Medal, CalendarCheck } from "lucide-react";
+import { Dumbbell, ArrowUpRight, CalendarCheck } from "lucide-react";
 import { Reveal, Eyebrow } from "./Reveal";
 import { waLink, WA_MSGS, WA_PODOTERAPIA_NUMBER } from "../lib/site";
-import podoterapiaLogo from "../assets/logos/podoterapia.webp";
-import purePilatesLogo from "../assets/logos/pure-pilates.webp";
-import zionGymLogo from "../assets/logos/zion-gym-referencia.png";
-
-const partners = ["Clube Atlético Juventus — Mooca", "Zion Gym — unidade Brás"];
+import podoterapiaLogo from "../assets/optimized/podoterapia.webp";
+import purePilatesLogo from "../assets/optimized/pure-pilates.webp";
+import zionGymLogo from "../assets/optimized/zion-gym.webp";
+import wbpfLogo from "../assets/optimized/wbpf-sao-paulo-sem-fundo.webp";
+import { WbpfFormulario } from "./WbpfFormulario";
+import atendimentoClinica from "../assets/optimized/atendimento-podologico-clinica.webp";
 
 const services = [
   {
@@ -45,32 +46,35 @@ const services = [
   },
 ];
 
-const imgSport =
-  "https://images.unsplash.com/photo-1717500252297-b09508db7ceb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NDh8MHwxfHNlYXJjaHwyfHxwaWxhdGVzJTIwcmVmb3JtZXIlMjBneW0lMjBzcG9ydHMlMjB0cmFpbmluZyUyMGF0aGxldGV8ZW58MHx8fHwxNzkxOTMyNjQwfDA&ixlib=rb-4.1.0&q=85";
-
 export const Servicos = () => (
-  <section id="servicos" className="bg-roxo-2 py-24 sm:py-32 relative overflow-hidden">
+  <section id="servicos" className="bg-roxo-2 py-16 sm:py-24 lg:py-32 relative overflow-hidden">
     <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-dourado/10 blur-3xl pointer-events-none" />
     <div className="max-w-7xl mx-auto px-5 sm:px-8 relative">
-      <div className="grid lg:grid-cols-2 gap-12 items-end mb-16">
-        <Reveal>
+      <Reveal className="max-w-4xl mb-10 sm:mb-12">
           <Eyebrow dark>Podologia, Naturopatia & Parcerias Esportivas</Eyebrow>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-perola mt-4 leading-tight tracking-tight">
             Excelência clínica reconhecida pelo esporte de alta performance
           </h2>
-        </Reveal>
-        <Reveal delay={0.15}>
-          <div className="bg-roxo-deep/60 border border-dourado/25 rounded-3xl p-6 sm:p-7 backdrop-blur">
-            <div className="flex items-center gap-3 mb-4">
-              <Trophy size={22} className="text-dourado" />
-              <span className="text-xs uppercase tracking-[0.22em] text-dourado font-semibold">
-                Patrocínio Oficial & Destaque
-              </span>
+      </Reveal>
+
+      <div className="grid gap-5 lg:grid-cols-[0.85fr_1.2fr_1fr] mb-14 sm:mb-16">
+        <Reveal className="h-full">
+          <article data-testid="servicos-patrocinio-wbpf" className="relative h-full overflow-hidden rounded-3xl border border-dourado/35 bg-roxo-deep/70 p-6 sm:p-7 flex flex-col">
+            <span className="text-[11px] uppercase tracking-[0.18em] text-dourado font-semibold">Patrocínio oficial</span>
+            <div className="relative mt-6 flex h-28 items-center justify-center">
+              <img src={wbpfLogo} alt="WBPF São Paulo — Federação Paulista de Fisiculturismo, Musculação e Fitness" className="relative h-28 w-28 max-w-full object-contain" loading="lazy" />
             </div>
-            <p className="text-perola/85 text-sm sm:text-base leading-relaxed">
-              <strong className="text-dourado">Patrocinadora Oficial WBPF Brasil</strong> (fisiculturismo), com atendimento a atletas e premiações para vencedores de competições, além de parcerias estratégicas com academias e clubes:
-            </p>
-            <div className="mt-5 flex items-center gap-3" data-testid="servicos-parceria-logos">
+            <h3 className="mt-5 font-serif text-3xl text-perola">WBPF São Paulo</h3>
+            <p className="mt-2 text-xs uppercase tracking-[0.15em] text-dourado">Fisiculturismo</p>
+            <p className="mt-5 text-sm text-perola/80 leading-relaxed">Patrocinadora oficial, com atendimento a atletas e premiações para vencedores de competições.</p>
+            <div className="mt-auto pt-2"><WbpfFormulario /></div>
+          </article>
+        </Reveal>
+
+        <Reveal delay={0.08} className="h-full">
+          <article data-testid="servicos-parceria-pure" className="h-full rounded-3xl border border-perola/15 bg-roxo-deep/50 p-6 sm:p-7 flex flex-col">
+            <span className="text-[11px] uppercase tracking-[0.18em] text-dourado font-semibold">Parceria · Pure Pilates</span>
+            <div className="mt-6 h-28 flex items-center justify-center gap-2 sm:gap-3" data-testid="servicos-parceria-logos">
               <a
                 href={waLink(WA_MSGS.podoterapia, WA_PODOTERAPIA_NUMBER)}
                 target="_blank"
@@ -78,41 +82,31 @@ export const Servicos = () => (
                 aria-label="Falar com a Podoterapia no WhatsApp"
                 title="Falar com a Podoterapia no WhatsApp"
                 data-testid="servicos-podoterapia-whatsapp"
-                className="flex-1 h-28 rounded-2xl bg-perola flex items-center justify-center p-3 ring-2 ring-transparent hover:ring-dourado transition-all duration-300"
+                className="min-w-0 max-w-[140px] flex-1 h-24 rounded-2xl bg-perola flex items-center justify-center p-3 ring-2 ring-transparent hover:ring-dourado transition-all duration-300"
               >
-                <img src={podoterapiaLogo} alt="Podoterapia — Equilíbrio entre o corpo e alma" className="max-h-full max-w-full object-contain" loading="lazy" />
+                <img src={podoterapiaLogo} alt="Podoterapia — Equilíbrio entre o corpo e alma" className="max-h-16 max-w-full object-contain" loading="lazy" />
               </a>
-              <span className="w-8 h-8 shrink-0 rounded-full bg-roxo text-dourado flex items-center justify-center text-lg font-semibold leading-none">+</span>
-              <div className="flex-1 h-28 rounded-2xl bg-perola flex items-center justify-center p-3">
-                <img src={purePilatesLogo} alt="Pure Pilates — unidades da Mooca" className="max-h-full max-w-full object-contain" loading="lazy" />
+              <span aria-hidden="true" className="shrink-0 text-dourado text-xl">+</span>
+              <div className="min-w-0 max-w-[140px] flex-1 h-24 rounded-2xl bg-perola flex items-center justify-center p-3">
+                <img src={purePilatesLogo} alt="Pure Pilates — unidades da Mooca" className="max-h-16 max-w-full object-contain" loading="lazy" />
               </div>
             </div>
-            <p className="mt-3 text-xs text-perola/70 leading-relaxed">
-              Podoterapia + Pure Pilates: benefícios e condições especiais para clientes das unidades Mooca e Mooca Juventus. Toque no logo da Podoterapia para informações pelo WhatsApp.
-            </p>
-            <div className="mt-5 rounded-2xl border border-perola/15 bg-roxo-deep/40 p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4">
-              <div className="w-full sm:w-40 shrink-0 h-20 rounded-xl bg-[#130e13] flex items-center justify-center p-2">
-                <img src={zionGymLogo} alt="Zion Gym — marca presente no material de parceria enviado" className="max-h-full max-w-full object-contain" loading="lazy" />
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-perola">Parceria Zion Gym — unidade Brás</p>
-                <p className="text-xs text-perola/70 mt-1 leading-relaxed">Condição divulgada para alunos Zion Gym: atendimento podológico por R$ 135,00. Consulte disponibilidade e regras da parceria.</p>
-                <a href={waLink(WA_MSGS.podoterapia, WA_PODOTERAPIA_NUMBER)} target="_blank" rel="noopener noreferrer" className="inline-flex mt-2 text-xs font-semibold text-dourado hover:text-perola">Consultar condição especial ↗</a>
-              </div>
-            </div>
-            <div className="flex flex-wrap gap-2 mt-4">
-              {partners.map((p) => (
-                <span
-                  key={p}
-                  data-testid={`servicos-parceiro-${p.split(" ")[0].toLowerCase()}`}
-                  className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-[0.12em] border border-dourado/40 text-rosec rounded-full px-3.5 py-1.5"
-                >
-                  <Medal size={12} className="text-dourado" />
-                  {p}
-                </span>
-              ))}
-            </div>
-          </div>
+            <h3 className="mt-5 font-serif text-3xl text-perola">Podoterapia + Pure Pilates</h3>
+            <p className="mt-2 text-xs uppercase tracking-[0.15em] text-dourado">Mooca e Mooca Juventus</p>
+            <p className="mt-5 mb-6 text-sm text-perola/80 leading-relaxed">Benefícios e condições especiais para clientes das unidades parceiras.</p>
+            <a href={waLink(WA_MSGS.podoterapia, WA_PODOTERAPIA_NUMBER)} target="_blank" rel="noopener noreferrer" className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-dourado hover:text-perola">Conhecer os benefícios <ArrowUpRight size={16} /></a>
+          </article>
+        </Reveal>
+
+        <Reveal delay={0.16} className="h-full">
+          <article data-testid="servicos-parceria-zion" className="h-full rounded-3xl border border-perola/15 bg-roxo-deep/50 p-6 sm:p-7 flex flex-col">
+            <span className="text-[11px] uppercase tracking-[0.18em] text-dourado font-semibold">Parceria · Zion Gym</span>
+            <div className="mt-6 h-28 flex items-center justify-center p-4"><img src={zionGymLogo} alt="Zion Gym" className="max-h-16 w-full max-w-[180px] object-contain" loading="lazy" /></div>
+            <h3 className="mt-5 font-serif text-3xl text-perola">Zion Gym</h3>
+            <p className="mt-2 text-xs uppercase tracking-[0.15em] text-dourado">Unidade Brás</p>
+            <p className="mt-5 mb-6 text-sm text-perola/80 leading-relaxed">Atendimento podológico por <strong className="text-perola">R$ 135,00</strong> para alunos Zion Gym. Consulte disponibilidade e regras da parceria.</p>
+            <a href={waLink(WA_MSGS.podoterapia, WA_PODOTERAPIA_NUMBER)} target="_blank" rel="noopener noreferrer" className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-dourado hover:text-perola">Consultar condição especial <ArrowUpRight size={16} /></a>
+          </article>
         </Reveal>
       </div>
 
@@ -127,7 +121,7 @@ export const Servicos = () => (
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="font-serif text-xl sm:text-2xl text-perola mt-4 leading-snug">{s.title}</h3>
-              <p className="mt-3 text-sm text-perola/65 leading-relaxed flex-1">{s.text}</p>
+              <p className="mt-3 text-sm text-perola/80 leading-relaxed flex-1">{s.text}</p>
               <span className="mt-5 inline-flex items-start gap-2 text-[11px] uppercase tracking-[0.12em] text-dourado/90">
                 <Dumbbell size={13} className="mt-0.5 shrink-0" />
                 {s.tag}
@@ -139,9 +133,10 @@ export const Servicos = () => (
         <Reveal delay={0.2}>
           <div className="relative h-full min-h-[280px] rounded-3xl overflow-hidden group">
             <img
-              src={imgSport}
-              alt="Atleta em treinamento de alta performance"
+              src={atendimentoClinica}
+              alt="Imagem ilustrativa de avaliação podológica em ambiente clínico"
               data-testid="servicos-sport-image"
+              loading="lazy"
               className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-roxo via-roxo/40 to-transparent" />

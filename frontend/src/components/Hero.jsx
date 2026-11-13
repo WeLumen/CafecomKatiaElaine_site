@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Footprints, GraduationCap, Coffee, Trophy } from "lucide-react";
-import mandala from "../assets/logos/mandala.webp";
-import centro from "../assets/logos/centro.webp";
-import { waLink, WA_MSGS, WA_CAFE_NUMBER } from "../lib/site";
+import mandala from "../assets/optimized/mandala.webp";
+import centro from "../assets/optimized/centro.webp";
+import { waLink, WA_MSGS } from "../lib/site";
 
 const MaskedLine = ({ children, delay }) => (
   <span className="block overflow-hidden pb-1">
@@ -32,11 +32,11 @@ export const Hero = () => {
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-[1.15fr_0.85fr] gap-14 items-center relative">
         <div>
-          <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-roxo">
+          <h1 className="font-serif text-[clamp(2.5rem,10vw,3rem)] sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-roxo">
             <MaskedLine delay={0.3}>Ciência e saúde</MaskedLine>
             <MaskedLine delay={0.4}>para os seus pés,</MaskedLine>
             <MaskedLine delay={0.5}>
-              <em className="text-dourado-hover not-italic font-medium italic">estratégia e mentorias</em>
+              <em className="text-dourado-ink font-medium italic">prática e gestão</em>
             </MaskedLine>
             <MaskedLine delay={0.6}>para sua carreira.</MaskedLine>
           </h1>
@@ -48,12 +48,8 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.85 }}
             className="mt-7 text-base sm:text-lg text-suave leading-relaxed max-w-xl text-balance"
           >
-            Conectando ciência e prática podológica.
-            <span className="block mt-3">
-              Impulsionando e conectando profissionais da podologia para construir uma carreira de sucesso,
-              desde a prática clínica até as mentorias administrativas, cursos e parcerias, promovendo
-              conhecimento em legislação, gestão, alta performance e conexões globais.
-            </span>
+            Atendimento podológico em São Paulo e formação para profissionais da podologia.
+            Escolha o cuidado para seus pés ou o próximo passo da sua carreira.
           </motion.p>
 
           <motion.div
@@ -70,7 +66,7 @@ export const Hero = () => {
               className="inline-flex items-center justify-center gap-2.5 bg-roxo text-perola font-medium px-7 py-4 rounded-full hover:bg-roxo-2 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
             >
               <Footprints size={18} />
-              Agendar Atendimento Podológico
+              Quero atendimento
             </a>
             <a
               href="#mentorias"
@@ -78,24 +74,22 @@ export const Hero = () => {
               className="inline-flex items-center justify-center gap-2.5 bg-dourado text-roxo-deep font-semibold px-7 py-4 rounded-full hover:bg-dourado-hover hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
             >
               <GraduationCap size={18} />
-              Conhecer Mentorias Profissionais
+              Sou profissional de podologia
             </a>
             <a
-              href={waLink(WA_MSGS.cafe, WA_CAFE_NUMBER)}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#cafe"
               data-testid="hero-cta-cafe"
-              className="inline-flex items-center justify-center gap-2.5 text-roxo font-medium px-3 py-4 underline underline-offset-4 decoration-dourado/60 hover:text-dourado-hover transition-colors duration-300"
+              className="inline-flex items-center justify-center gap-2.5 text-roxo font-medium px-3 py-4 underline underline-offset-4 decoration-dourado/60 hover:text-dourado-ink transition-colors duration-300"
             >
               <Coffee size={18} />
-              Participar do Café com Katia Elaine
+              Conhecer o Café com Katia Elaine
             </a>
           </motion.div>
         </div>
 
         <motion.div
           style={{ y: yMedal }}
-          className="relative mx-auto w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[440px] lg:h-[440px]"
+          className="relative mx-auto w-[min(72vw,300px)] aspect-square sm:w-[400px] lg:w-[440px]"
         >
           <div className="absolute -inset-5 rounded-full border border-dashed border-dourado/50 animate-spin-slower" />
           <div className="absolute -inset-12 rounded-full border border-dourado/20 animate-spin-slowest" />
@@ -119,13 +113,13 @@ export const Hero = () => {
             initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 1.3 }}
-            className="absolute -bottom-4 -left-6 sm:-left-10 bg-perola border border-borda rounded-2xl px-5 py-3.5 shadow-xl animate-float-soft"
+            className="absolute -bottom-4 left-0 sm:-left-10 bg-perola border border-borda rounded-2xl px-5 py-3.5 shadow-xl animate-float-soft"
           >
             <div className="flex items-center gap-2.5">
-              <Trophy size={18} className="text-dourado-hover" />
+              <Trophy size={18} className="text-dourado-ink" />
               <div className="leading-tight">
                 <span className="block text-xs font-semibold text-roxo">Patrocinadora Oficial</span>
-                <span className="block text-[11px] text-suave">WBPF Brasil · Fisiculturismo</span>
+                <span className="block text-[11px] text-suave">WBPF São Paulo · Fisiculturismo</span>
               </div>
             </div>
           </motion.div>

@@ -1,0 +1,11 @@
+node_modules/
+build/
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+backend/data/
+*.log
+ACESSO-PAINEL-LOCAL.txt
