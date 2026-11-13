@@ -25,6 +25,21 @@ Consulte `DEPLOY.md`. O Dockerfile prepara frontend e API em um único serviço.
 
 O SQLite local é separado do banco publicado. Arquivos `.env`, chaves de acesso, banco local, dependências instaladas e builds não devem ser enviados ao GitHub.
 
+## Links da comunidade
+
+Os botões **Acessar canal** e **Entrar no grupo** ficam em **Apoio & Redes de Conexão**, na seção Café. Os endereços são configurados em `frontend/src/components/Cafe.jsx`:
+
+- Canal: https://whatsapp.com/channel/0029Vae1xNzH5JM1jlwjs423
+- Grupo: https://chat.whatsapp.com/JnVCYmInwsq8UBlworURvH
+
+Opcionalmente, configure `REACT_APP_MASTERMIND_CANAL_URL` e `REACT_APP_MASTERMIND_GRUPO_URL` antes do build para substituir esses endereços. Uma alteração exige nova publicação.
+
+## Imagens
+
+As páginas usam as imagens otimizadas em `frontend/src/assets/optimized/`. Os originais sem uso foram preservados na pasta local `arquivo-local/imagens/`, ignorada pelo Git e pelo Docker. Essa pasta não acompanha novos clones; mantenha uma cópia de segurança caso precise editar os originais.
+
+`scripts/optimize_site_images.py` continua disponível para otimizar novas imagens adicionadas ao projeto (requer Pillow).
+
 ## Verificação
 
 Frontend: `npm run build` na pasta `frontend`.
