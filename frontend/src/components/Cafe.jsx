@@ -1,4 +1,4 @@
-import { Coffee, Mic, Users, CalendarDays, ArrowUpRight, MessagesSquare, Radio, Sparkles } from "lucide-react";
+import { Bus, Coffee, Mic, Users, CalendarDays, ArrowUpRight, MessagesSquare, Radio, Sparkles } from "lucide-react";
 import { Reveal, Eyebrow } from "./Reveal";
 import logo from "../assets/optimized/logo-round.webp";
 import katiaCafeRecorte from "../assets/optimized/katia-cafe-recorte.webp";
@@ -102,6 +102,18 @@ export const Cafe = () => (
               </Reveal>
             ))}
           </div>
+
+          <a
+            href={`https://wa.me/5511910589872?text=${encodeURIComponent("Olá, Katia! Quero saber mais sobre a caravana para eventos de podologia.")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="cafe-cta-caravana"
+            className="mt-6 flex min-h-12 w-full items-center justify-center gap-3 rounded-2xl border border-dourado bg-dourado px-5 py-4 text-center text-sm font-semibold text-roxo-deep transition-colors hover:bg-roxo-deep hover:text-perola focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dourado sm:text-base"
+          >
+            <Bus size={22} className="shrink-0" aria-hidden="true" />
+            Caravana para eventos de podologia
+            <ArrowUpRight size={18} className="shrink-0" aria-hidden="true" />
+          </a>
 
           <a
             href="https://evento.cafecomkatiaelaine.org/"
